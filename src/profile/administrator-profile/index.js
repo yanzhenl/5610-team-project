@@ -47,15 +47,17 @@ function AdministratorProfile () {
                     <span className="ms-1">Followers</span>
                 </div>
             </div>
-            <div className="flex-container mt-2">
+            <hr className="border border-3 opacity-75"></hr>
+            <h1 className="text-center mt-4 text-blue">Stores under your management</h1>
+            <div className="flex-container mt-5">
                 <div className="card card-style">
                     <img src={administrator.manageStorePicture1} className="card-img-top p-2 store-picture" alt="..." />
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">{administrator.manageStoreName1}</h5>
                       <p className="card-text description-text">{administrator.manageStoreDescription1}</p>
                       <div className="mt-auto d-flex justify-content-between">
-                        <a href="#" className="btn btn-primary btn-sm mx-3">Home Page</a>
-                        <a href="#" className="btn btn-warning ms-2 btn-sm mx-3">Close Store</a>
+                        <button className="btn button-blue btn-sm mx-3">Home Page</button>
+                        <button className="btn btn-warning ms-2 btn-sm mx-3">Close Store</button>
                       </div>
                     </div>
                 </div>
@@ -65,8 +67,8 @@ function AdministratorProfile () {
                       <h5 className="card-title">{administrator.manageStoreName2}</h5>
                       <p className="card-text description-text">{administrator.manageStoreDescription2}</p>
                       <div className="mt-auto d-flex justify-content-between">
-                        <a href="#" className="btn btn-primary btn-sm mx-3">Home Page</a>
-                        <a href="#" className="btn btn-warning ms-2 btn-sm mx-3">Close Store</a>
+                        <button className="btn button-blue btn-sm mx-3">Home Page</button>
+                        <button className="btn btn-warning ms-2 btn-sm mx-3">Close Store</button>
                       </div>
                     </div>
                 </div>
@@ -76,8 +78,8 @@ function AdministratorProfile () {
                       <h5 className="card-title">{administrator.manageStoreName3}</h5>
                       <p className="card-text description-text">{administrator.manageStoreDescription3}</p>
                       <div className="mt-auto d-flex justify-content-between">
-                        <a href="#" className="btn btn-primary btn-sm mx-3">Home Page</a>
-                        <a href="#" className="btn btn-warning ms-2 btn-sm mx-3">Close Store</a>
+                        <button className="btn button-blue btn-sm mx-3">Home Page</button>
+                        <button className="btn btn-warning ms-2 btn-sm mx-3">Close Store</button>
                       </div>
                     </div>
                 </div>

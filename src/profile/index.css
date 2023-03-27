@@ -45,3 +45,13 @@
     font-weight: 400;
     color: #6c757d;
 }
+
+.text-blue {
+    color: #303e92;
+}
+
+.button-blue {
+    border:1px solid #303e92 !important;
+    background-color: #303e92 !important;
+    color: white !important;
+}

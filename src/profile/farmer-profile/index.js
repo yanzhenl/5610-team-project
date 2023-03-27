@@ -80,7 +80,7 @@ function FarmerProfile() {
             {farmer.closed ? (
               <button className="btn btn-secondary">Store Closed</button>
             ) : (
-              <button href="#" className="btn btn-primary">
+              <button href="#" className="btn button-blue">
                 Home Page
               </button>
             )}
