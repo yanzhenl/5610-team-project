@@ -33,7 +33,7 @@ function FarmerProfile() {
             <div className="text-muted ms-4">{farmer.handle}</div>
           </div>
           <div className="col-2">
-            <Link to="/tuiter/edit-profile">
+            <Link to="/profile/edit-profile">
               <button className="rounded-pill float-end mt-2 button">
                 Edit profile
               </button>
@@ -65,7 +65,8 @@ function FarmerProfile() {
         <div className="card-body">
           <h5 className="card-title">{farmer.storeName}</h5>
           <p className="card-text">{farmer.storeDescription}</p>
-          <a href="#" className="btn btn-primary">Manage Store</a>
+          <a href="#" className="btn btn-primary">Home Page</a>
+          <a href="#" className="btn btn-warning ms-2">Close Store</a>
         </div>
       </div>
     </div>
