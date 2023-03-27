@@ -28,3 +28,20 @@
 .card-style {
     width: 18rem;
 }
+
+.store-picture {
+    height: 200px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.description-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6c757d;
+}

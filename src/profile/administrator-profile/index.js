@@ -47,6 +47,41 @@ function AdministratorProfile () {
                     <span className="ms-1">Followers</span>
                 </div>
             </div>
+            <div className="flex-container mt-2">
+                <div className="card card-style">
+                    <img src={administrator.manageStorePicture1} className="card-img-top p-2 store-picture" alt="..." />
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="card-title">{administrator.manageStoreName1}</h5>
+                      <p className="card-text description-text">{administrator.manageStoreDescription1}</p>
+                      <div className="mt-auto d-flex justify-content-between">
+                        <a href="#" className="btn btn-primary btn-sm mx-3">Home Page</a>
+                        <a href="#" className="btn btn-warning ms-2 btn-sm mx-3">Close Store</a>
+                      </div>
+                    </div>
+                </div>
+                <div className="card card-style">
+                    <img src={administrator.manageStorePicture2} className="card-img-top p-2 store-picture" alt="..." />
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="card-title">{administrator.manageStoreName2}</h5>
+                      <p className="card-text description-text">{administrator.manageStoreDescription2}</p>
+                      <div className="mt-auto d-flex justify-content-between">
+                        <a href="#" className="btn btn-primary btn-sm mx-3">Home Page</a>
+                        <a href="#" className="btn btn-warning ms-2 btn-sm mx-3">Close Store</a>
+                      </div>
+                    </div>
+                </div>
+                <div className="card card-style">
+                    <img src={administrator.manageStorePicture3} className="card-img-top p-2 store-picture" alt="..." />
+                    <div className="card-body d-flex flex-column">
+                      <h5 className="card-title">{administrator.manageStoreName3}</h5>
+                      <p className="card-text description-text">{administrator.manageStoreDescription3}</p>
+                      <div className="mt-auto d-flex justify-content-between">
+                        <a href="#" className="btn btn-primary btn-sm mx-3">Home Page</a>
+                        <a href="#" className="btn btn-warning ms-2 btn-sm mx-3">Close Store</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
