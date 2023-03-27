@@ -2,25 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   administrator: {
-    firstName: "Jose",
-    lastName: "Annunziato",
-    handle: "@jannunzi",
-    tweets: "6,114 Tweets",
-    profilePicture: "../images/jose.jpeg",
-    bannerPicture: "../images/farmer-banner.jpeg",
-    bio: "Faculty, Software Engineer, AI, Space, and renewable enthusiast.Retuits and likes are not endorsements.",
-    website: "youtube.com/webdevtv",
-    location: "Boston, MA",
-    dateOfBirth: "7/7/1968",
-    dateJoined: "April 2009",
-    followingCount: 340,
-    followersCount: 223,
+    firstName: "William",
+    lastName: "Lee",
+    handle: "@williamlee",
+    profilePicture: "../images/administrator.jpeg",
+    bannerPicture: "../images/market-banner.jpeg",
+    bio: "Passionate about connecting farmers with their community and providing consumers with access to fresh, locally grown produce. ",
+    location: "Seattle, WA",
+    dateOfBirth: "11/12/1989",
+    dateJoined: "October 2012",
+    followingCount: 110,
+    followersCount: 58,
     editing: false,
   },
 };
 
 const administratorSlice = createSlice({
-  name: "farmer",
+  name: "administrator",
   initialState,
   reducers: {},
 });

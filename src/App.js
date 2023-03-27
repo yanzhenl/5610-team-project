@@ -1,14 +1,14 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
-import Profile from "./profile";
+import ProfileComponent from "./profile";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container">
         <Routes>
-          <Route path="/profile/*" element={<Profile/>} />
+          <Route path="/profile/*" element={<ProfileComponent/>} />
         </Routes>
       </div>
     </BrowserRouter>
