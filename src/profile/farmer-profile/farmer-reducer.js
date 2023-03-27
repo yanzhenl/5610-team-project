@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   farmer: {
+    _id: "123",
     firstName: "Mark",
     lastName: "Thompson",
     handle: "@markthompson",
@@ -14,6 +15,7 @@ const initialState = {
     followingCount: 26,
     followersCount: 562,
     editing: false,
+    closed: false,
     storeName: "Thompson Farms",
     storeDescription: "New England's premier farm-to-table produce market.",
     storePicture: "../images/store.png",
@@ -23,7 +25,13 @@ const initialState = {
 const farmerSlice = createSlice({
   name: "farmer",
   initialState,
-  reducers: {},
+  reducers: {
+    closeStore: (state, action) => {
+        const farmer = state.farmer;
+        farmer.closed = !farmer.closed;
+    }
+  },
 });
 
 export default farmerSlice.reducer;
+export const { closeStore } = farmerSlice.actions;

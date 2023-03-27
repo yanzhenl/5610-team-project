@@ -1,11 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { closeStore } from "./farmer-reducer";
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../index.css";
 
 function FarmerProfile() {
   const { farmer } = useSelector((state) => state.farmer);
+  const dispatch = useDispatch();
+  const handleClose = () => {
+    dispatch(closeStore(farmer));
+  };
   return (
     <div>
       <div className="row">
@@ -61,12 +66,31 @@ function FarmerProfile() {
         </div>
       </div>
       <div className="card card-style mt-2">
-        <img src={farmer.storePicture} className="card-img-top" alt="..." />
+        <img
+          src={farmer.storePicture}
+          className="card-img-top store-picture"
+          alt="..."
+        />
         <div className="card-body">
           <h5 className="card-title">{farmer.storeName}</h5>
-          <p className="card-text">{farmer.storeDescription}</p>
-          <a href="#" className="btn btn-primary">Home Page</a>
-          <a href="#" className="btn btn-warning ms-2">Close Store</a>
+          <p className="card-text description-text">
+            {farmer.storeDescription}
+          </p>
+          <div className="d-flex justify-content-between">
+            {farmer.closed ? (
+              <button className="btn btn-secondary">Store Closed</button>
+            ) : (
+              <button href="#" className="btn btn-primary">
+                Home Page
+              </button>
+            )}
+            <button
+              onClick={() => handleClose(farmer)}
+              className="btn btn-warning ms-2"
+            >
+              {farmer.closed ? "Open Store" : "Close Store"}
+            </button>
+          </div>
         </div>
       </div>
     </div>
