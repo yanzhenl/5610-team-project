@@ -14,6 +14,9 @@ const initialState = {
     followingCount: 26,
     followersCount: 562,
     editing: false,
+    storeName: "Thompson Farms",
+    storeDescription: "New England's premier farm-to-table produce market.",
+    storePicture: "../images/store.png",
   },
 };
 
