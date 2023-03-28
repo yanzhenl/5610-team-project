@@ -1,0 +1,42 @@
+[{
+  "_id": 123,
+  "profilePicture": "ecofarm.png",
+  "userName": "Eco Farm",
+  "title": "Fresh and organic parsley collected this morning.",
+  "producePicture": "parsely.png",
+  "price": "$1.79/lb"
+  },
+  {
+    "_id": 234,
+    "profilePicture": "farmlife.jpeg",
+    "userName": "Farm Life",
+    "title": "Honeycrisp apples are in season!",
+    "producePicture": "apples.png",
+    "price": "$2.99/lb"
+  },
+  {
+    "_id": 345,
+    "profilePicture": "sunrise.png",
+    "userName": "Sunrise Farm",
+    "title": "Healthy and delicious spinach!",
+    "producePicture": "spinach.png",
+    "price": "$0.80/oz"
+  },
+  {
+    "_id": 456,
+    "profilePicture": "sweetland.png",
+    "userName": "Sweet Land Farm",
+    "title": "Sweetest blueberries you'll ever taste!",
+    "producePicture": "blueberries.png",
+    "price": "$5.99/lb"
+  },
+  {
+    "_id": 567,
+    "profilePicture": "aloha.jpeg",
+    "userName": "Aloha Farm",
+    "title": "Native Hawaiian pineapples!",
+    "producePicture": "pineapple.png",
+    "price": "$3.99/lb"
+  }
+
+]
