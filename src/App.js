@@ -8,8 +8,23 @@ import productReducer from "./product/product-reducer";
 import FarmersHomeComponent from "./farmers-home";
 import HomePage from "./home";
 import ProductDetail from "./product/product-detail";
+import PastReducer from "./order-history/past-reducer";
+import PastOrderList from "./order-history/past-order-list";
+import OrderDetailRudcer from "./order-history/detail-reducer";
+import OrderDetail from "./order-history/order-detail-list";
+import Cart from "./cart/cart-reducer"
+import CartList from "./cart/cart-list"
+
 const store = configureStore(
-    {reducer: {products: productReducer}});
+    {
+        reducer: {
+            products: productReducer,
+            past: PastReducer,
+            detail:OrderDetailRudcer,
+            cart: Cart
+        }
+    }
+    );
 
 function App() {
   return (
@@ -21,6 +36,9 @@ function App() {
                 <Route path="/profile/*" element={<ProfileComponent/>} />
                 <Route path="/farmers-home/*" element={<FarmersHomeComponent/>}/>
                 <Route path="/product/detail/*" element={<ProductDetail/>}/>
+                <Route path="/order-history" element={<PastOrderList/>}/>
+                <Route path="/order-history/detail" element={<OrderDetail/>}/>
+                <Route path="/cart-list" element={<CartList/>}/>
             </Routes>
           </div>
         </BrowserRouter>

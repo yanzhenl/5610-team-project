@@ -1,0 +1,28 @@
+.ct-flexbox-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.ct-box{
+    height: 20px;
+    width: 35px;
+}
+
+.ct-imag{
+    width: 60px;
+    height: 60px;
+}
+
+.ct-input{
+    text-align: center;
+}
+.ct-total{
+    padding-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.ct-checkbox{
+    background-color: lightgrey;
+    border-radius: 10%;
+}

@@ -16,9 +16,6 @@ function Home() {
                 <div className="col-10 col-md-10 col-lg-11 col-xl-10"
                      style={{"position": "relative"}}>
                     <HomePage/>
-
-
-
                 </div>
             </div>
     );

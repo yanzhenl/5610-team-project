@@ -1,0 +1,20 @@
+[
+  {
+    "_id" : "1",
+    "orderId" : "678",
+    "image" : "pineapple.png",
+    "price" : "2.49",
+    "count" : 1,
+    "name" : "Native Hawaiian Pineapples",
+    "total" : "2.49"
+  },
+  {
+    "_id" : "2",
+    "orderId" : "678",
+    "image" : "apples.png",
+    "price" : "2.49",
+    "count" : 1,
+    "name" : "Honeycrisp apples",
+    "total" : "2.49"
+  }
+]
