@@ -6,10 +6,11 @@ const ProductItem = (
     {
       product = {
         "id" : "1",
-        "productName" : "Beef",
-        "image" : "beef.png",
-        "descriptions" : "A5 from Australia",
-        "pricing" : 20.00,
+        "farmer" : "Bee's Farm",
+        "productName" : "Pineapple",
+        "image" : "pineapple.png",
+        "descriptions" : "Organic pineapple from Hawaii",
+        "price" : 2.00,
         "availability" : true
       }
     }
@@ -17,23 +18,31 @@ const ProductItem = (
   const distpatch = useDispatch();
 
   return (
-      <div>
+      <div className="border rounded-2">
         <Link to="/product/detail" style={{textDecoration : "none"}}>
-          <img src={product.image} alt={product.id} width={50} height={50}/>
+          <img src={`images/${product.image}`} alt={product.id} height={200} className="rounded-top w-100"/>
         </Link>
         <div>
-          {product.productName}
-          {product.availability === true && "In Stock"}
-          {product.availability === false && "Out of Stock"}
+          <span className="ps-2 fw-bold">
+            {product.productName}
+          </span>
         </div>
         <div>
-          <button className="btn rounded-pill border">
-            <Link to="/product/detail" style={{textDecoration : "none"}}>
-              Product Detail
-            </Link>
+          <button className="btn rounded-pill border float-end">
+            add
           </button>
-          <button className="btn rounded-pill border">add</button>
+          {product.availability === true && "In Stock"}
+          {product.availability === false && "Out of Stock"}
+          <br/>
+          ${product.price.toFixed(2)}/lb
         </div>
+        {/*<div>*/}
+        {/*  /!*<button className="btn rounded-pill border">*!/*/}
+        {/*  /!*  <Link to="/product/detail" style={{textDecoration : "none"}}>*!/*/}
+        {/*  /!*    Product Detail*!/*/}
+        {/*  /!*  </Link>*!/*/}
+        {/*  /!*</button>*!/*/}
+        {/*</div>*/}
       </div>
   )
 }

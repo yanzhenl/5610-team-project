@@ -5,15 +5,17 @@ import ProductItem from "./product-item";
 const ProductList = () => {
   const products = useSelector(state => state.products)
   return (
-      <ul className="list-group">
-        {
-          products.map(product =>
-            <li className="pt-3 ps-2 pe-2 pb-2 list-group-item list-group-item-action" key={product._id}>
-              <ProductItem product={{product}}/>
-            </li>
-          )
-        }
-      </ul>
+      <div className="container">
+        <ul className="row">
+          {
+            products.map(product =>
+                <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4" key={product._id}>
+                  <ProductItem product={product}/>
+                </li>
+            )
+          }
+        </ul>
+      </div>
   )
 }
 
