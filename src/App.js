@@ -14,6 +14,7 @@ import OrderDetailRudcer from "./order-history/detail-reducer";
 import OrderDetail from "./order-history/order-detail-list";
 import Cart from "./cart/cart-reducer"
 import CartList from "./cart/cart-list"
+import EditProductDetail from "./product/edit-product-detail";
 
 const store = configureStore(
     {
@@ -34,8 +35,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/profile/*" element={<ProfileComponent/>} />
-                <Route path="/farmers-home/*" element={<FarmersHomeComponent/>}/>
-                <Route path="/product/detail/*" element={<ProductDetail/>}/>
+                <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
+                <Route path="/farmers-home/product-detail" element={<ProductDetail/>}/>
+                <Route path="/farmers-home/edit-detail" element={<EditProductDetail/>}/>
                 <Route path="/order-history" element={<PastOrderList/>}/>
                 <Route path="/order-history/detail" element={<OrderDetail/>}/>
                 <Route path="/cart-list" element={<CartList/>}/>

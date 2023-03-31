@@ -1,6 +1,7 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import {useNavigate} from "react-router";
 
 const ProductItem = (
     {
@@ -15,13 +16,19 @@ const ProductItem = (
       }
     }
 ) => {
-  const distpatch = useDispatch();
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function handleImageClick() {
+    navigate('/farmers-home/product-detail', {state: {product}});
+  }
   return (
       <div className="border rounded-2">
-        <Link to="/product/detail" style={{textDecoration : "none"}}>
+        {/*<Link to='/farmers-home/product-detail' state={product} style={{textDecoration : "none"}}>*/}
+        {/*  <img src={`images/${product.image}`} alt={product.id} height={200} className="rounded-top w-100"/>*/}
+        {/*</Link>*/}
+        <div onClick={handleImageClick}>
           <img src={`images/${product.image}`} alt={product.id} height={200} className="rounded-top w-100"/>
-        </Link>
+        </div>
         <div>
           <span className="ps-2 fw-bold">
             {product.productName}
@@ -34,7 +41,7 @@ const ProductItem = (
           {product.availability === true && "In Stock"}
           {product.availability === false && "Out of Stock"}
           <br/>
-          ${product.price.toFixed(2)}/lb
+          ${product.price}/lb
         </div>
         {/*<div>*/}
         {/*  /!*<button className="btn rounded-pill border">*!/*/}

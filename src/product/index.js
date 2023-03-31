@@ -8,15 +8,15 @@ const ProductList = () => {
       <div className="container">
         <ul className="row">
           {
-            products.map(product =>
-                <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4" key={product._id}>
-                  <ProductItem product={product}/>
-                </li>
-            )
+            products.map(product =>(
+                    <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4" key={product._id}>
+                      <ProductItem product={product}/>
+                    </li>
+                ))
           }
         </ul>
       </div>
-  )
-}
+  );
+};
 
 export default ProductList
