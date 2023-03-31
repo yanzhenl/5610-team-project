@@ -17,4 +17,15 @@
     z-index: 100;
 }
 
+.wd-round-button {
+    border-radius: 75%;
+    padding: 0.5rem;
+}
 
+.wd-truncate-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
