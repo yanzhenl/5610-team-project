@@ -5,7 +5,7 @@ const initialState = {
     firstName: "Emily",
     lastName: "Brown",
     handle: "@emilybrown",
-    profilePicture: "../images/emily.webp",
+    profilePicture: "../../images/emily.webp",
     bannerPicture: "../../images/emily-banner.jpeg",
     bio: "Love the fresh produce, unique goods, and sense of community that I find there.",
     location: "Los Angeles, CA",
@@ -20,7 +20,12 @@ const initialState = {
 const customerSlice = createSlice({
   name: "customer",
   initialState,
-  reducers: {},
+  reducers: {
+    editProfile: (state, action) => {
+      state.farmer = action.payload;
+    }
+  },
 });
 
 export default customerSlice.reducer;
+export const { editProfile } = customerSlice.actions;

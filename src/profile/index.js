@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import CustomerProfile from "./customer-profile";
 import customerReducer from "./customer-profile/customer-reducer";
+import EditCustomerProfile from "./customer-profile/edit-profile";
 import AdministratorProfile from "./administrator-profile";
 import administratorReducer from "./administrator-profile/administrator-reducer";
 import FarmerProfile from "./farmer-profile";
@@ -30,6 +31,7 @@ function ProfileComponent() {
           <Route path="customer" element={<CustomerProfile />} />
           <Route path="farmer" element={<FarmerProfile />} />
           <Route path="farmer/edit-profile" element={<EditFarmerProfile />} />
+          <Route path="customer/edit-profile" element={<EditCustomerProfile />} />
         </Routes>
       </div>
     </Provider>

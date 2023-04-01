@@ -25,7 +25,7 @@ function CustomerProfile () {
                         <div className="text-muted ms-4">{customer.handle}</div>
                     </div>
                     <div className="col-2">
-                        <Link to="/tuiter/edit-profile">
+                        <Link to="/profile/customer/edit-profile">
                         <button className="rounded-pill float-end mt-2 button">Edit profile</button></Link>
                     </div>
                 </div>
