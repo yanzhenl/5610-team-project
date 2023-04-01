@@ -5,8 +5,8 @@ const initialState = {
     firstName: "William",
     lastName: "Lee",
     handle: "@williamlee",
-    profilePicture: "../images/administrator.jpeg",
-    bannerPicture: "../images/market-banner.jpeg",
+    profilePicture: "../../images/administrator.jpeg",
+    bannerPicture: "../../images/market-banner.jpeg",
     bio: "Passionate about connecting farmers with their community and providing consumers with access to fresh, locally grown produce. ",
     location: "Seattle, WA",
     dateOfBirth: "11/12/1989",
@@ -29,7 +29,12 @@ const initialState = {
 const administratorSlice = createSlice({
   name: "administrator",
   initialState,
-  reducers: {},
+  reducers: {
+    editProfile: (state, action) => {
+      state.farmer = action.payload;
+    }
+  },
 });
 
 export default administratorSlice.reducer;
+export const { editProfile } = administratorSlice.actions;

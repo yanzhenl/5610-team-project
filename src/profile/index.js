@@ -5,6 +5,7 @@ import customerReducer from "./customer-profile/customer-reducer";
 import EditCustomerProfile from "./customer-profile/edit-profile";
 import AdministratorProfile from "./administrator-profile";
 import administratorReducer from "./administrator-profile/administrator-reducer";
+import EditAdministratorProfile from "./administrator-profile/edit-profile";
 import FarmerProfile from "./farmer-profile";
 import farmerReducer from "./farmer-profile/farmer-reducer";
 import EditFarmerProfile from "./farmer-profile/edit-profile";
@@ -32,6 +33,7 @@ function ProfileComponent() {
           <Route path="farmer" element={<FarmerProfile />} />
           <Route path="farmer/edit-profile" element={<EditFarmerProfile />} />
           <Route path="customer/edit-profile" element={<EditCustomerProfile />} />
+          <Route path="administrator/edit-profile" element={<EditAdministratorProfile />} />
         </Routes>
       </div>
     </Provider>
