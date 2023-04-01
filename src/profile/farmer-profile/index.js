@@ -38,7 +38,7 @@ function FarmerProfile() {
             <div className="text-muted ms-4">{farmer.handle}</div>
           </div>
           <div className="col-2">
-            <Link to="/profile/edit-profile">
+            <Link to="/profile/farmer/edit-profile">
               <button className="rounded-pill float-end mt-2 button">
                 Edit profile
               </button>

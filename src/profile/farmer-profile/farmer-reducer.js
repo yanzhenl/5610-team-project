@@ -6,8 +6,8 @@ const initialState = {
     firstName: "Mark",
     lastName: "Thompson",
     handle: "@markthompson",
-    profilePicture: "../images/farmer.jpeg",
-    bannerPicture: "../images/farmer-banner.jpeg",
+    profilePicture: "../../images/farmer.jpeg",
+    bannerPicture: "../../images/farmer-banner.jpeg",
     bio: "I'm a third-generation farmer from the Midwest. I'm dedicated to producing high-quality crops using sustainable practices and supporting my local community. ",
     location: "Boston, MA",
     dateOfBirth: "7/7/1968",
@@ -29,9 +29,12 @@ const farmerSlice = createSlice({
     closeStore: (state, action) => {
         const farmer = state.farmer;
         farmer.closed = !farmer.closed;
+    },
+    editProfile: (state, action) => {
+      state.farmer = action.payload;
     }
-  },
+  }
 });
 
 export default farmerSlice.reducer;
-export const { closeStore } = farmerSlice.actions;
+export const { closeStore, editProfile } = farmerSlice.actions;

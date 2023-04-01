@@ -1,7 +1,10 @@
 .center {
     position: relative;
-    top: 25%;
     left: 15%;
+}
+
+.position-relative {
+    position: relative;
 }
 
 .button {
@@ -54,4 +57,29 @@
     border:1px solid #303e92 !important;
     background-color: #303e92 !important;
     color: white !important;
+}
+
+.save-button {
+    border: 0px;
+    background-color: black;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.profile-picture-edit {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: -25px;
+    left: 20px;
+}
+
+.textarea-height {
+    height: 100px !important;
+}
+
+.transparent-button {
+    background-color: transparent;
+    border: 0px;
 }
