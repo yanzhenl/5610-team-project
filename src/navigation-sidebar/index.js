@@ -1,7 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {useLocation} from "react-router";
-import "../index.css";
+import "../home/index.css";
+
 
 
 const NavigationSidebar = () => {
@@ -12,7 +13,7 @@ const NavigationSidebar = () => {
     return (
         <div className="wd-sticky-sidebar">
             <div className="list-group">
-                <Link to="/" className={`list-group-item list-group-item-action
+                <Link to="/home" className={`list-group-item list-group-item-action
                     ${active === 'home'?'active':''}`}>
                     <i className="bi bi-house-fill float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Home</span>
@@ -27,31 +28,31 @@ const NavigationSidebar = () => {
                     <i className="bi bi-person-hearts float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Best Sellers</span>
                 </Link>
-                <a className={`list-group-item list-group-item-action
+                <Link to="/login" className={`list-group-item list-group-item-action
                     ${active === 'login'?'active':''}`}>
                     <i className="bi bi-person-fill-up float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Login</span>
-                </a>
-                <a className={`list-group-item list-group-item-action
+                </Link>
+                <Link to="signup" className={`list-group-item list-group-item-action
                     ${active === 'sign up'?'active':''}`}>
                     <i className="bi bi-person-plus float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Sign up</span>
-                </a>
-                <Link to="/" className={`list-group-item list-group-item-action
+                </Link>
+                <Link to="/profile" className={`list-group-item list-group-item-action
                     ${active === 'profile'?'active':''}`}>
                     <i className="bi bi-person-circle float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Profile</span>
                 </Link>
-                <a className={`list-group-item list-group-item-action
+                <Link to="/cart-list" className={`list-group-item list-group-item-action
                     ${active === 'cart'?'active':''}`}>
                     <i className="bi bi-cart4 float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Cart</span>
-                </a>
-                <a className={`list-group-item list-group-item-action
+                </Link>
+                <Link to="/order-history" className={`list-group-item list-group-item-action
                     ${active === 'orders'?'active':''}`}>
                     <i className="bi bi-bag-check float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Orders</span>
-                </a>
+                </Link>
             </div>
         </div>
     );
