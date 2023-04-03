@@ -31,13 +31,13 @@ function FarmerProfile() {
               alt=""
             />
           </div>
-          <div className="col-9">
+          <div className="col-8 ms-4">
             <div className="fw-bold ms-4 mt-4">
               {farmer.firstName} {farmer.lastName}
             </div>
             <div className="text-muted ms-4">{farmer.handle}</div>
           </div>
-          <div className="col-2">
+          <div className="col-2 ms-5">
             <Link to="/profile/farmer/edit-profile">
               <button className="rounded-pill float-end mt-2 button">
                 Edit profile

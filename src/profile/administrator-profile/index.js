@@ -21,11 +21,11 @@ function AdministratorProfile () {
                     <div className="col-1">
                         <img src = {administrator.profilePicture} className="rounded-circle profile-picture ms-3" alt=""/>
                     </div>
-                    <div className="col-9">
+                    <div className="col-8 ms-4">
                         <div className="fw-bold ms-4 mt-4">{administrator.firstName} {administrator.lastName}</div>
                         <div className="text-muted ms-4">{administrator.handle}</div>
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 ms-5">
                         <Link to="/profile/administrator/edit-profile">
                         <button className="rounded-pill float-end mt-2 button">Edit profile</button></Link>
                     </div>
