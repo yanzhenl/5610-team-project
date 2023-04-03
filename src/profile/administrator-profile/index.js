@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../index.css';
+import StoreList from "./store-list";
 
 function AdministratorProfile () {
     const { administrator } = useSelector((state) => state.administrator);
@@ -49,41 +50,7 @@ function AdministratorProfile () {
             </div>
             <hr className="border border-3 opacity-75"></hr>
             <h1 className="text-center mt-4 text-blue">Stores under your management</h1>
-            <div className="flex-container mt-5">
-                <div className="card card-style">
-                    <img src={administrator.manageStorePicture1} className="card-img-top p-2 store-picture" alt="..." />
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title">{administrator.manageStoreName1}</h5>
-                      <p className="card-text description-text">{administrator.manageStoreDescription1}</p>
-                      <div className="mt-auto d-flex justify-content-between">
-                        <button className="btn button-blue btn-sm mx-3">Home Page</button>
-                        <button className="btn btn-warning ms-2 btn-sm mx-3">Close Store</button>
-                      </div>
-                    </div>
-                </div>
-                <div className="card card-style">
-                    <img src={administrator.manageStorePicture2} className="card-img-top p-2 store-picture" alt="..." />
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title">{administrator.manageStoreName2}</h5>
-                      <p className="card-text description-text">{administrator.manageStoreDescription2}</p>
-                      <div className="mt-auto d-flex justify-content-between">
-                        <button className="btn button-blue btn-sm mx-3">Home Page</button>
-                        <button className="btn btn-warning ms-2 btn-sm mx-3">Close Store</button>
-                      </div>
-                    </div>
-                </div>
-                <div className="card card-style">
-                    <img src={administrator.manageStorePicture3} className="card-img-top p-2 store-picture" alt="..." />
-                    <div className="card-body d-flex flex-column">
-                      <h5 className="card-title">{administrator.manageStoreName3}</h5>
-                      <p className="card-text description-text">{administrator.manageStoreDescription3}</p>
-                      <div className="mt-auto d-flex justify-content-between">
-                        <button className="btn button-blue btn-sm mx-3">Home Page</button>
-                        <button className="btn btn-warning ms-2 btn-sm mx-3">Close Store</button>
-                      </div>
-                    </div>
-                </div>
-            </div>
+            <StoreList />
         </div>
     );
 };

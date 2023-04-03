@@ -1,0 +1,23 @@
+[
+    {
+        "_id": 123,
+        "storeName": "Thompson Farms",
+        "description" :"New England's premier farm-to-table produce market.",
+        "picture": "../images/store.png",
+        "closed": false
+    },
+    {
+        "_id": 456,
+        "storeName": "Harvest House Market",
+        "description" :"Harvest House Market is a retail store that offers a variety of fresh, locally-sourced farm products. You can find a range of high-quality fruits, vegetables, meats, and other food items, all of which are grown or produced by local farmers.",
+        "picture": "../images/local-food.jpeg",
+        "closed": false
+    },
+    {
+        "_id": 789,
+        "storeName": "Farmer John",
+        "description" :"Start with a town that has an appetite for eating adventurously, season it with every culture in the world, and roast it in 365 days of absolutely perfect grilling weather, and voila! You have the story of Farmer John, a local Southern California company.",
+        "picture": "../images/store.png",
+        "closed": false
+    }
+]

@@ -6,6 +6,7 @@ import EditCustomerProfile from "./customer-profile/edit-profile";
 import AdministratorProfile from "./administrator-profile";
 import administratorReducer from "./administrator-profile/administrator-reducer";
 import EditAdministratorProfile from "./administrator-profile/edit-profile";
+import storeReducer from "./administrator-profile/store-reducer";
 import FarmerProfile from "./farmer-profile";
 import farmerReducer from "./farmer-profile/farmer-reducer";
 import EditFarmerProfile from "./farmer-profile/edit-profile";
@@ -16,6 +17,7 @@ const store = configureStore({
     customer: customerReducer,
     administrator: administratorReducer,
     farmer: farmerReducer,
+    store: storeReducer,
   },
 });
 
