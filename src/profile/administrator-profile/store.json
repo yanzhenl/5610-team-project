@@ -17,7 +17,7 @@
         "_id": 789,
         "storeName": "Farmer John",
         "description" :"Start with a town that has an appetite for eating adventurously, season it with every culture in the world, and roast it in 365 days of absolutely perfect grilling weather, and voila! You have the story of Farmer John, a local Southern California company.",
-        "picture": "../images/store.png",
+        "picture": "../images/farmer-john.png",
         "closed": false
     }
 ]
