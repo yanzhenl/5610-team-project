@@ -43,6 +43,7 @@ function App() {
                       <div className="col-10 col-md-10 col-lg-11 col-xl-10"
                            style={{"position": "relative"}}>
                           <Routes>
+                              <Route path="/" element={<HomePage/>}/>
                               <Route path="/home" element={<HomePage/>}/>
                               <Route path="/login" element={<Login/>}/>
                               <Route path="/signup" element={<SignUp/>}/>

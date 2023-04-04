@@ -33,7 +33,7 @@ const NavigationSidebar = () => {
                     <i className="bi bi-person-fill-up float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Login</span>
                 </Link>
-                <Link to="signup" className={`list-group-item list-group-item-action
+                <Link to="/signup" className={`list-group-item list-group-item-action
                     ${active === 'sign up'?'active':''}`}>
                     <i className="bi bi-person-plus float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Sign up</span>
