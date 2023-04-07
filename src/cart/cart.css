@@ -1,6 +1,7 @@
 .ct-flexbox-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .ct-box{
@@ -25,4 +26,59 @@
 .ct-checkbox{
     background-color: lightgrey;
     border-radius: 10%;
+    height: 260px;
 }
+
+.ct-pad{
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+.ct-pad2{
+    padding-top: 25px;
+    padding-right: 30px;
+}
+
+.ck-body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.ck-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ck-summary{
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+

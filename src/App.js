@@ -16,6 +16,7 @@ import OrderDetailRudcer from "./order-history/detail-reducer";
 import OrderDetail from "./order-history/order-detail-list";
 import Cart from "./cart/cart-reducer"
 import CartList from "./cart/cart-list"
+import Checkout from "./cart/checkout"
 import EditProductDetail from "./product/edit-product-detail";
 import NavigationSidebar from "./navigation-sidebar";
 import React from "react";
@@ -54,6 +55,7 @@ function App() {
                               <Route path="/order-history" element={<PastOrderList/>}/>
                               <Route path="/order-history/detail" element={<OrderDetail/>}/>
                               <Route path="/cart-list" element={<CartList/>}/>
+                              <Route path="/cart-list/checkout" element={<Checkout/>}/>
                           </Routes>
                       </div>
                   </div>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./cart.css";
 import {useDispatch} from "react-redux";
 
-const Cart = (
+const CartItem = (
     {
         cart = {
             "_id" : "1",
@@ -24,25 +24,27 @@ const Cart = (
                 <div className="col-1 oh-pad">
                     <img src={`/images/${cart.image}`} className="d-none d-lg-block ct-imag"/>
                 </div>
-                <div className="col-8 oh-pad">
+                <div className="col-6 oh-pad">
                     <div>{cart.price}ea</div>
                     <div>{cart.name}</div>
                 </div>
-                <div className="col-1 oh-pad-2 flexbox-container">
-                    <i className="fa-solid fa-minus"></i>
-                    <input className="ct-box ct-input" value={cart.count}/>
-                    <i className="fa-solid fa-plus"></i>
+                <div className="ct-flexbox-container col-5">
+                    <div className="ct-flexbox-container ct-pad2">
+                        <i className="fa-solid fa-minus"></i>
+                        <input className="ct-box ct-input" value={cart.count}/>
+                        <i className="fa-solid fa-plus"></i>
+                    </div>
+                    <div className="ct-pad">
+                        <div className="oh-head-2">${cart.total}</div>
+                    </div>
+                    <div className="ct-pad2">
+                        <i className="fa-regular fa-trash-can"></i>
+                    </div>
                 </div>
-                <div className="col-1 oh-pad-2">
-                    <div className="oh-head-2">${cart.total}</div>
-                </div>
-                <div className="col-1 oh-pad-2">
-                    <i className="fa-regular fa-trash-can"></i>
-                </div>
+
             </div>
         </li>
     )
-
 }
 
-export default Cart;
+export default CartItem;

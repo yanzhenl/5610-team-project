@@ -1,10 +1,11 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import Cart from "./cart";
-import cart from "./cart";
+import CartItem from "./cart-item";
+import cart from "./cart-item";
+import {Link} from "react-router-dom";
 const CartList = () => {
     const cartsArray = useSelector(state => state.cart);
-    let total = cartsArray.reduce((sum,item) => sum + item.price * item.count, 0);
+    let total = parseFloat(cartsArray.reduce((sum,item) => sum + item.price * item.count, 0)).toFixed(2);
     let tax = (total*0.09).toFixed(2);
     let totalEnd = (parseFloat(total) + parseFloat(tax) + parseFloat(9.99)).toFixed(2);
     return(
@@ -14,7 +15,7 @@ const CartList = () => {
                     <ul className="list-group">
                         {
                             cartsArray.map(cart =>
-                                <Cart key={cart._id} cart={cart}/>)
+                                <CartItem key={cart._id} cart={cart}/>)
                         }
                     </ul>
                 </div>
@@ -42,8 +43,7 @@ const CartList = () => {
                     <br/>
                     <br/>
                     <br/>
-                    <button className="btn btn-primary rounded-pill float-end ">Checkout</button>
-
+                    <Link to="/cart-list/checkout" className="btn btn-primary rounded-pill float-end ">Checkout</Link>
                 </div>
 
             </div>
