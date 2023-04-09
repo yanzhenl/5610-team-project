@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {profileThunk} from "../../services/users/users-thunks";
 import "../index.css";
 
 const HomePage = () => {
+    const { currentUser } = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(profileThunk());
+    }, []);
+
     return(
         <>
             <div className="row mb-4">
@@ -9,10 +17,14 @@ const HomePage = () => {
                                 wd-cropped-image wd-image-container">
                     <img src="/images/background.jpeg"
                          className="w-100 mb-3"/>
+
+
+
                     <span className="position-absolute wd-picture-letter
                                    text-light wd-text-shadow
                                    d-none d-lg-block">
-                        Welcome to your local Farmer's Market</span>
+                        Welcome to your local Farmer's Market
+                    </span>
                 </div>
 
                 <div className="position-relative mt-3">
@@ -23,6 +35,15 @@ const HomePage = () => {
                 </div>
 
             </div>
+
+            <div className="ms-3 mb-2 wd-font-size">
+                {currentUser && (
+                    <div>
+                        Hi {currentUser.firstName}! Here are some recommendations for you today.
+                    </div>
+                )}
+            </div>
+
 
         </>
     );

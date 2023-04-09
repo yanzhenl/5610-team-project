@@ -9,6 +9,7 @@ import FarmersHomeComponent from "./farmers-home";
 import HomePage from "./home";
 import Login from "./login";
 import SignUp from "./sign-up";
+import usersReducer from "./services/users/users-reducer";
 import ProductDetail from "./product/product-detail";
 import PastReducer from "./order-history/past-reducer";
 import PastOrderList from "./order-history/past-order-list";
@@ -24,6 +25,7 @@ import React from "react";
 const store = configureStore(
     {
         reducer: {
+            users: usersReducer,
             products: productReducer,
             past: PastReducer,
             detail:OrderDetailRudcer,

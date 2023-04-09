@@ -1,11 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {useLocation} from "react-router";
+import {useLocation, useNavigate} from "react-router";
 import "../home/index.css";
-
+import {logoutThunk} from "../services/users/users-thunks";
+import { useDispatch, useSelector } from "react-redux";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 const NavigationSidebar = () => {
+    const { currentUser } = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const {pathname} = useLocation();
     const paths = pathname.split('/')
     const active = paths[2];
@@ -13,6 +19,12 @@ const NavigationSidebar = () => {
     return (
         <div className="wd-sticky-sidebar">
             <div className="list-group">
+
+                <a className={`list-group-item list-group-item-action
+                    ${active === 'explore'?'active':''}`}>
+                    <i className="fa-solid fa-seedling float-start pt-1"></i>
+                    <span className="d-none d-xl-block float-start ms-2">FreshVibes</span>
+                </a>
                 <Link to="/home" className={`list-group-item list-group-item-action
                     ${active === 'home'?'active':''}`}>
                     <i className="bi bi-house-fill float-start"></i>
@@ -23,37 +35,63 @@ const NavigationSidebar = () => {
                     <i className="bi bi-hash float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Explore</span>
                 </Link>
-                <Link to="/" className={`list-group-item list-group-item-action
-                    ${active === 'best sellers'?'active':''}`}>
-                    <i className="bi bi-person-hearts float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Best Sellers</span>
-                </Link>
-                <Link to="/login" className={`list-group-item list-group-item-action
-                    ${active === 'login'?'active':''}`}>
-                    <i className="bi bi-person-fill-up float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Login</span>
-                </Link>
-                <Link to="/signup" className={`list-group-item list-group-item-action
-                    ${active === 'sign up'?'active':''}`}>
-                    <i className="bi bi-person-plus float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Sign up</span>
-                </Link>
-                <Link to="/profile" className={`list-group-item list-group-item-action
+                {!currentUser && (
+                    <>
+                        <Link
+                            to="/login"
+                            className={`list-group-item list-group-item-action ${
+                                active === "login" ? "active" : ""
+                            }`}>
+                            <i className="bi bi-person-fill-up float-start"></i>
+                            <span className="d-none d-xl-block float-start ms-2">Login</span>
+                        </Link>
+                        <Link
+                            to="/signup"
+                            className={`list-group-item list-group-item-action ${
+                                active === "sign up" ? "active" : ""
+                            }`}>
+                            <i className="bi bi-person-plus float-start"></i>
+                            <span className="d-none d-xl-block float-start ms-2">Sign up</span>
+                        </Link>
+                    </>
+                )}
+
+                {currentUser && (
+                    <Link to="/profile" className={`list-group-item list-group-item-action
                     ${active === 'profile'?'active':''}`}>
-                    <i className="bi bi-person-circle float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Profile</span>
-                </Link>
+                        <i className="bi bi-person-circle float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Profile</span>
+                    </Link>
+                )}
+
                 <Link to="/cart-list" className={`list-group-item list-group-item-action
                     ${active === 'cart'?'active':''}`}>
                     <i className="bi bi-cart4 float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Cart</span>
                 </Link>
-                <Link to="/order-history" className={`list-group-item list-group-item-action
+
+                {currentUser && (
+                    <Link to="/order-history" className={`list-group-item list-group-item-action
                     ${active === 'orders'?'active':''}`}>
-                    <i className="bi bi-bag-check float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Orders</span>
-                </Link>
+                        <i className="bi bi-bag-check float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Orders</span>
+                    </Link>
+                )}
+
             </div>
+
+            <div>
+                {currentUser && (
+                    <button
+                        className="btn btn-danger mt-2 w-100"
+                        onClick={() => {
+                            dispatch(logoutThunk());
+                            navigate("/login");
+                        }}>
+                        Log out
+                    </button>)}
+            </div>
+
         </div>
     );
 };
