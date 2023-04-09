@@ -20,6 +20,7 @@ import CartList from "./cart/cart-list"
 import Checkout from "./cart/checkout"
 import EditProductDetail from "./product/edit-product-detail";
 import NavigationSidebar from "./navigation-sidebar";
+import ProductSearch from "./product/product-search"
 import React from "react";
 
 const store = configureStore(
@@ -58,6 +59,7 @@ function App() {
                               <Route path="/order-history/detail" element={<OrderDetail/>}/>
                               <Route path="/cart-list" element={<CartList/>}/>
                               <Route path="/cart-list/checkout" element={<Checkout/>}/>
+                              <Route path="/product-search" element={<ProductSearch/>}/>
                           </Routes>
                       </div>
                   </div>

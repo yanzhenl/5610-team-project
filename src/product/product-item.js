@@ -27,11 +27,11 @@ const ProductItem = (
         {/*  <img src={`images/${product.image}`} alt={product.id} height={200} className="rounded-top w-100"/>*/}
         {/*</Link>*/}
         <div onClick={handleImageClick}>
-          <img src={`images/${product.image}`} alt={product.id} height={200} className="rounded-top w-100"/>
+          <img src={`${product.img}`} alt={product.id} height={200} className="rounded-top w-100"/>
         </div>
         <div>
           <span className="ps-2 fw-bold">
-            {product.productName}
+            {product.name}
           </span>
         </div>
         <div>
