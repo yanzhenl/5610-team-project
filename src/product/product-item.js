@@ -1,6 +1,5 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
-import {Link} from "react-router-dom";
 import {useNavigate} from "react-router";
 
 const ProductItem = (
@@ -16,7 +15,6 @@ const ProductItem = (
       }
     }
 ) => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   function handleImageClick() {
     navigate('/farmers-home/product-detail', {state: {product}});
