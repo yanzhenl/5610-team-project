@@ -1,74 +1,92 @@
 [{
-  "_id": 1,
-  "profilePicture": "ecofarm.png",
-  "userName": "Eco Farm",
-  "title": "Fresh and organic parsley collected this morning.",
-  "producePicture": "parsely.png",
-  "price": "$1.79/lb"
+    "_id": 1,
+    "profilePicture": "ecofarm.png",
+    "userName": "Eco Farm",
+    "handle": "@ecofarm",
+    "title": "Fresh and organic parsley collected this morning.",
+    "producePicture": "parsely.png",
+    "price": "$1.79/lb",
+    "description": "We grow our produce in a sustainable way and we are proud to be able to provide our community with fresh and organic produce."
   },
   {
     "_id": 2,
     "profilePicture": "farmlife.jpeg",
     "userName": "Farm Life",
+    "handle": "@farmlife",
     "title": "Honeycrisp apples are in season!",
     "producePicture": "apples.png",
-    "price": "$2.99/lb"
+    "price": "$2.99/lb",
+    "description": "We are a family owned farm that has been in business for over 30 years."
   },
   {
     "_id": 3,
     "profilePicture": "sunrise.png",
     "userName": "Sunrise Farm",
+    "handle": "@sunrisefarm",
     "title": "Healthy and delicious spinach!",
     "producePicture": "spinach.png",
-    "price": "$0.80/oz"
+    "price": "$0.80/oz",
+    "description": "We are a group of farmers that have been in business for over 20 years. We like to provide our community with the best produce possible."
   },
   {
     "_id": 4,
     "profilePicture": "sweetland.png",
     "userName": "Sweet Land Farm",
+    "handle": "@sweetlandfarm",
     "title": "Sweetest blueberries you'll ever taste!",
     "producePicture": "blueberries.png",
-    "price": "$5.99/lb"
+    "price": "$5.99/lb",
+    "description": "We are known for our blueberries. We would love to share them with you!"
   },
   {
     "_id": 5,
     "profilePicture": "aloha.jpeg",
     "userName": "Aloha Farm",
+    "handle": "@alohafarm",
     "title": "Native Hawaiian pineapples!",
     "producePicture": "pineapple.png",
-    "price": "$3.99/lb"
+    "price": "$3.99/lb",
+    "description": "Aloha! We are a relatively new farm that is located in the heart of the city."
   },
   {
     "_id": 6,
     "profilePicture": "greenproduce.png",
     "userName": "Green Produce",
+    "handle": "@greenproduce",
     "title": "Fresh and organic green onions!",
     "producePicture": "greenonions.jpeg",
-    "price": "$1.46/lb"
+    "price": "$1.46/lb",
+    "description": "We grow green onions quickly and we are able to provide them to our community at a low price."
   },
   {
     "_id": 7,
     "profilePicture": "lovemango.jpeg",
     "userName": "Love Mango",
+    "handle": "@lovemango",
     "title": "Who doesn't love mangoes?",
     "producePicture": "mango.png",
-    "price": "$3.00/lb"
+    "price": "$3.00/lb",
+    "description": "We grow the sweetest mangoes in the city. We invite you to try them out!"
   },
   {
     "_id": 8,
     "profilePicture": "freshproduce.png",
     "userName": "Fresh Produce",
+    "handle": "@freshproduce",
     "title": "Hand-picked fresh white radishes!",
     "producePicture": "whiteradish.png",
-    "price": "$1.80/lb"
+    "price": "$1.80/lb",
+    "description": "Radishes are a great source of vitamin C and they are delicious! Pick some up today!"
   },
   {
     "_id": 9,
     "profilePicture": "avacadoDirect.jpeg",
     "userName": "Avacado Direct",
+    "handle": "@avacadodirect",
     "title": "Get the cheapest avacados here!",
     "producePicture": "avacado.png",
-    "price": "$3.50/lb"
+    "price": "$3.50/lb",
+    "description": "Avacados are a great source of vitamin E and unsaturated fats. Don't miss out on this deal!"
   }
 
 ]

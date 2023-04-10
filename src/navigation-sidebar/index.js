@@ -30,10 +30,10 @@ const NavigationSidebar = () => {
                     <i className="bi bi-house-fill float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Home</span>
                 </Link>
-                <Link to="/" className={`list-group-item list-group-item-action
+                <Link to="/explore-farmer" className={`list-group-item list-group-item-action
                     ${active === 'explore'?'active':''}`}>
-                    <i className="bi bi-hash float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Explore</span>
+                    <i className="bi bi-globe2 float-start"></i>
+                    <span className="d-none d-xl-block float-start ms-2">Explore farmer</span>
                 </Link>
                 {!currentUser && (
                     <>

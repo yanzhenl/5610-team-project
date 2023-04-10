@@ -22,6 +22,7 @@ import EditProductDetail from "./product/edit-product-detail";
 import NavigationSidebar from "./navigation-sidebar";
 import ProductSearch from "./product/product-search"
 import React from "react";
+import FarmerList from "./explore-farmer";
 
 const store = configureStore(
     {
@@ -49,6 +50,7 @@ function App() {
                           <Routes>
                               <Route path="/" element={<HomePage/>}/>
                               <Route path="/home" element={<HomePage/>}/>
+                              <Route path="/explore-farmer" element={<FarmerList/>}/>
                               <Route path="/login" element={<Login/>}/>
                               <Route path="/signup" element={<SignUp/>}/>
                               <Route path="/profile/*" element={<ProfileComponent/>} />
