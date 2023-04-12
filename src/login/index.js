@@ -22,12 +22,18 @@ function Login() {
             if (result.type === "users/login/rejected") {
                 setErrorMessage(result.payload);
             } else {
-                navigate("/home");
+                // Check the role of the logged-in user and navigate accordingly
+                if (result.payload.role === "FARMER") {
+                    navigate("/profile");
+                } else {
+                    navigate("/home");
+                }
             }
         } catch (err) {
             console.log(err);
         }
     };
+
 
 
 
@@ -92,4 +98,5 @@ function Login() {
 }
 
 export default Login;
+
 

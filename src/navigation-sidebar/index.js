@@ -64,18 +64,19 @@ const NavigationSidebar = () => {
                     </Link>
                 )}
 
-                <Link to="/cart-list" className={`list-group-item list-group-item-action
-                    ${active === 'cart'?'active':''}`}>
-                    <i className="bi bi-cart4 float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Cart</span>
-                </Link>
-
-                {currentUser && (
-                    <Link to="/order-history" className={`list-group-item list-group-item-action
-                    ${active === 'orders'?'active':''}`}>
-                        <i className="bi bi-bag-check float-start"></i>
-                        <span className="d-none d-xl-block float-start ms-2">Orders</span>
-                    </Link>
+                {currentUser && currentUser.role === "USER" && (
+                    <>
+                        <Link to="/cart-list" className={`list-group-item list-group-item-action
+                        ${active === 'cart'?'active':''}`}>
+                            <i className="bi bi-cart4 float-start"></i>
+                            <span className="d-none d-xl-block float-start ms-2">Cart</span>
+                        </Link>
+                        <Link to="/order-history" className={`list-group-item list-group-item-action
+                        ${active === 'orders'?'active':''}`}>
+                            <i className="bi bi-bag-check float-start"></i>
+                            <span className="d-none d-xl-block float-start ms-2">Orders</span>
+                        </Link>
+                    </>
                 )}
 
             </div>
