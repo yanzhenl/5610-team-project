@@ -8,7 +8,7 @@ import productReducer from "./product/product-reducer";
 import FarmersHomeComponent from "./farmers-home";
 import HomePage from "./home";
 import Login from "./login";
-import SignUp from "./sign-up";
+import Register from "./register";
 import usersReducer from "./services/users/users-reducer";
 import ProductDetail from "./product/product-detail";
 import PastReducer from "./order-history/past-reducer";
@@ -52,7 +52,7 @@ function App() {
                               <Route path="/home" element={<HomePage/>}/>
                               <Route path="/explore-farmer" element={<FarmerList/>}/>
                               <Route path="/login" element={<Login/>}/>
-                              <Route path="/signup" element={<SignUp/>}/>
+                              <Route path="/register" element={<Register/>}/>
                               <Route path="/profile/*" element={<ProfileComponent/>} />
                               <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
                               <Route path="/farmers-home/product-detail" element={<ProductDetail/>}/>

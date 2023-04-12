@@ -103,4 +103,12 @@ input {
     flex-grow: 1;
 }
 
+.wd-error-message {
+    color: #ea0d0d;
+    margin-top: -20px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+
 

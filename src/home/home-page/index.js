@@ -18,8 +18,6 @@ const HomePage = () => {
                     <img src="/images/background.jpeg"
                          className="w-100 mb-3"/>
 
-
-
                     <span className="position-absolute wd-picture-letter
                                    text-light wd-text-shadow
                                    d-none d-lg-block">

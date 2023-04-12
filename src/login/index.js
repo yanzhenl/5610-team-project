@@ -12,12 +12,18 @@ function Login() {
     const {currentUser} = useSelector((state) => state.users);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const login = () => {
+    const login = async () => {
         try {
-            dispatch(loginThunk({ username, password }));
-            navigate("/home");
+            const result = await dispatch(loginThunk({ username, password }));
+            if (result.type === "users/login/rejected") {
+                setErrorMessage(result.payload);
+            } else {
+                navigate("/home");
+            }
         } catch (err) {
             console.log(err);
         }
@@ -41,7 +47,7 @@ function Login() {
                         </FloatingLabel>
                     </div>
 
-                    <div className="mb-3 pb-1">
+                    <div className="mb-4 pb-1">
                         <FloatingLabel controlId="floatingPassword" label="Password"
                                        htmlFor="password">
                             <Form.Control type="password" placeholder="Password"
@@ -51,6 +57,13 @@ function Login() {
                         </FloatingLabel>
                     </div>
 
+                    {errorMessage && (
+                        <div className="wd-error-message">
+                            <i className="bi bi-exclamation-circle-fill pe-1"></i>
+                            {errorMessage}
+                        </div>
+                    )}
+
                     <button onClick={login} className="wd-login-button" type="submit">Log in</button>
 
                     <div>
@@ -58,6 +71,7 @@ function Login() {
                             <div>
                                 <h2>{currentUser.username}</h2>
                                 <h2>{currentUser.password}</h2>
+                                <h2>{currentUser.firstName}</h2>
                             </div>
                         )}
                     </div>
@@ -65,8 +79,8 @@ function Login() {
 
                     <div className="mt-4">
                         Don't have an account?
-                        <Link to="/signup">
-                            <span> Sign up now</span>
+                        <Link to="/register">
+                            <span> Register now</span>
                         </Link>
                         .
                     </div>
