@@ -32,16 +32,28 @@ function AdminScreen() {
                                 ? "Farmers"
                                 : "Consumers"}
                     </h2>
-                    <ul className="list-group">
-                        {groupedUsers[role] &&
-                            groupedUsers[role].map((user) => (
-                                <li key={user.id} className="list-group-item">
-                                    <img width={50} className="" src={`/images/${user.profilePicture}`} />
-                                    {user.username} {user.firstName} {user.lastName} {user.role}
+                    <div className="container">
+                        <div className="row">
+                            {groupedUsers[role] &&
+                                groupedUsers[role].map((user) => (
+                                    <div key={user.id} className="col-12 col-md-2 mb-4">
+                                        <img width={100} className="rounded-pill" src={`/images/${user.profilePicture}`} />
 
-                                </li>
-                            ))}
-                    </ul>
+                                        <div className="">
+                                            <div className="mt-2">
+                                                {user.username}
+                                            </div>
+                                            <div style={{color: "gray"}}>
+                                                {user.handle}
+                                            </div>
+                                            {user.firstName} {user.lastName} {user.businessName}
+                                        </div>
+
+
+                                    </div>
+                                ))}
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
@@ -49,3 +61,4 @@ function AdminScreen() {
 }
 
 export default AdminScreen;
+
