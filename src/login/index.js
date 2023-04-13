@@ -25,6 +25,8 @@ function Login() {
                 // Check the role of the logged-in user and navigate accordingly
                 if (result.payload.role === "FARMER") {
                     navigate("/profile");
+                } else if (result.payload.role === "ADMIN") {
+                    navigate("/users");
                 } else {
                     navigate("/home");
                 }

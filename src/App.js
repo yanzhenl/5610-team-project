@@ -23,6 +23,7 @@ import NavigationSidebar from "./navigation-sidebar";
 import ProductSearch from "./product/product-search"
 import React from "react";
 import FarmerList from "./explore-farmer";
+import AdminScreen from "./admin-screen";
 
 const store = configureStore(
     {
@@ -53,6 +54,7 @@ function App() {
                               <Route path="/explore-farmer" element={<FarmerList/>}/>
                               <Route path="/login" element={<Login/>}/>
                               <Route path="/register" element={<Register/>}/>
+                              <Route path="/users" element={<AdminScreen/>} />
                               <Route path="/profile/*" element={<ProfileComponent/>} />
                               <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
                               <Route path="/farmers-home/product-detail" element={<ProductDetail/>}/>

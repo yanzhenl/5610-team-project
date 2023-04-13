@@ -35,7 +35,7 @@ const HomePage = () => {
             </div>
 
             <div className="ms-3 mb-2 wd-font-size">
-                {currentUser && (
+                {currentUser && currentUser.role === "CONSUMER" && (
                     <div>
                         Hi {currentUser.firstName}! Here are some recommendations for you today.
                     </div>

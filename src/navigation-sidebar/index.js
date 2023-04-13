@@ -25,16 +25,29 @@ const NavigationSidebar = () => {
                     <i className="fa-solid fa-seedling float-start pt-1"></i>
                     <span className="d-none d-xl-block float-start ms-2">FreshVibes</span>
                 </a>
+
+                {currentUser && currentUser.role === "ADMIN" && (
+                    <Link to="/users" className={`list-group-item list-group-item-action
+                        ${active === 'admin'?'active':''}`}>
+                        <i className="bi bi-people-fill float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Users</span>
+                    </Link>
+                )}
+
                 <Link to="/home" className={`list-group-item list-group-item-action
                     ${active === 'home'?'active':''}`}>
                     <i className="bi bi-house-fill float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Home</span>
                 </Link>
+
+
                 <Link to="/explore-farmer" className={`list-group-item list-group-item-action
-                    ${active === 'explore'?'active':''}`}>
+                ${active === 'explore'?'active':''}`}>
                     <i className="bi bi-globe2 float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Explore farmer</span>
                 </Link>
+
+
                 {!currentUser && (
                     <>
                         <Link
@@ -64,7 +77,7 @@ const NavigationSidebar = () => {
                     </Link>
                 )}
 
-                {currentUser && currentUser.role === "USER" && (
+                {currentUser && currentUser.role === "CONSUMER" && (
                     <>
                         <Link to="/cart-list" className={`list-group-item list-group-item-action
                         ${active === 'cart'?'active':''}`}>
@@ -78,6 +91,7 @@ const NavigationSidebar = () => {
                         </Link>
                     </>
                 )}
+
 
             </div>
 
