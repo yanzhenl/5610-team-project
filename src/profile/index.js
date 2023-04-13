@@ -12,12 +12,14 @@ import farmerReducer from "./farmer-profile/farmer-reducer";
 import EditFarmerProfile from "./farmer-profile/edit-profile";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import usersReducer from "../services/users/users-reducer";
 const store = configureStore({
   reducer: {
     customer: customerReducer,
     administrator: administratorReducer,
     farmer: farmerReducer,
     store: storeReducer,
+    users: usersReducer,
   },
 });
 
