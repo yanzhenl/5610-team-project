@@ -1,68 +1,77 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import {useLocation, useNavigate} from "react-router";
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 import "../home/index.css";
-import {logoutThunk} from "../services/users/users-thunks";
+import { logoutThunk } from "../services/users/users-thunks";
 import { useDispatch, useSelector } from "react-redux";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
 
 const NavigationSidebar = () => {
     const { currentUser } = useSelector((state) => state.users);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const {pathname} = useLocation();
-    const paths = pathname.split('/')
-    const active = paths[2];
+    const { pathname } = useLocation();
+    const paths = pathname.split("/");
+    const initialActive = paths[2];
+
+    const [active, setActive] = useState(initialActive);
+
+    const handleClick = (newActive) => {
+        setActive(newActive);
+    };
+
+    const handleLogout = async () => {
+        await dispatch(logoutThunk());
+        setActive("");
+        navigate("/login");
+    };
 
     return (
         <div className="wd-sticky-sidebar">
             <div className="list-group">
 
                 <a className={`list-group-item list-group-item-action
-                    ${active === 'explore'?'active':''}`}>
+                    `}>
                     <i className="fa-solid fa-seedling float-start pt-1"></i>
                     <span className="d-none d-xl-block float-start ms-2">FreshVibes</span>
                 </a>
 
-                {currentUser && currentUser.role === "ADMIN" && (
-                    <Link to="/users" className={`list-group-item list-group-item-action
-                        ${active === 'admin'?'active':''}`}>
-                        <i className="bi bi-people-fill float-start"></i>
-                        <span className="d-none d-xl-block float-start ms-2">Users</span>
-                    </Link>
-                )}
-
                 <Link to="/home" className={`list-group-item list-group-item-action
-                    ${active === 'home'?'active':''}`}>
+                    ${active === 'home'?'wd-active':''}`} onClick={() => handleClick("home")}>
                     <i className="bi bi-house-fill float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Home</span>
                 </Link>
 
-
                 <Link to="/explore-farmer" className={`list-group-item list-group-item-action
-                ${active === 'explore'?'active':''}`}>
+                ${active === 'explore-farmer'?'wd-active':''}`} onClick={() => handleClick("explore-farmer")}>
                     <i className="bi bi-globe2 float-start"></i>
                     <span className="d-none d-xl-block float-start ms-2">Explore farmer</span>
                 </Link>
 
+                {currentUser && currentUser.role === "ADMIN" && (
+                    <Link to="/users" className={`list-group-item list-group-item-action
+                        ${active === 'users'?'wd-active':''}`} onClick={() => handleClick("users")}>
+                        <i className="bi bi-people-fill float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Users</span>
+                    </Link>
+                )}
 
                 {!currentUser && (
                     <>
                         <Link
                             to="/login"
                             className={`list-group-item list-group-item-action ${
-                                active === "login" ? "active" : ""
-                            }`}>
+                                active === "login" ? "wd-active" : ""
+                            }`} onClick={() => handleClick("login")}>
                             <i className="bi bi-person-fill-up float-start"></i>
                             <span className="d-none d-xl-block float-start ms-2">Login</span>
                         </Link>
                         <Link
                             to="/register"
                             className={`list-group-item list-group-item-action ${
-                                active === "register" ? "active" : ""
-                            }`}>
+                                active === "register" ? "wd-active" : ""
+                            }`} onClick={() => handleClick("register")}>
                             <i className="bi bi-person-plus float-start"></i>
                             <span className="d-none d-xl-block float-start ms-2">Register</span>
                         </Link>
@@ -71,7 +80,7 @@ const NavigationSidebar = () => {
 
                 {currentUser && (
                     <Link to="/profile" className={`list-group-item list-group-item-action
-                    ${active === 'profile'?'active':''}`}>
+                    ${active === 'profile'?'wd-active':''}`} onClick={() => handleClick("profile")}>
                         <i className="bi bi-person-circle float-start"></i>
                         <span className="d-none d-xl-block float-start ms-2">Profile</span>
                     </Link>
@@ -80,31 +89,27 @@ const NavigationSidebar = () => {
                 {currentUser && currentUser.role === "CONSUMER" && (
                     <>
                         <Link to="/cart-list" className={`list-group-item list-group-item-action
-                        ${active === 'cart'?'active':''}`}>
+                        ${active === 'cart'?'wd-active':''}`} onClick={() => handleClick("cart")}>
                             <i className="bi bi-cart4 float-start"></i>
                             <span className="d-none d-xl-block float-start ms-2">Cart</span>
                         </Link>
                         <Link to="/order-history" className={`list-group-item list-group-item-action
-                        ${active === 'orders'?'active':''}`}>
+                        ${active === 'orders'?'wd-active':''}`} onClick={() => handleClick("orders")}>
                             <i className="bi bi-bag-check float-start"></i>
                             <span className="d-none d-xl-block float-start ms-2">Orders</span>
                         </Link>
                     </>
                 )}
-
-
             </div>
 
             <div>
                 {currentUser && (
                     <button
                         className="btn btn-danger mt-2 w-100"
-                        onClick={() => {
-                            dispatch(logoutThunk());
-                            navigate("/login");
-                        }}>
+                        onClick={handleLogout}>
                         Log out
-                    </button>)}
+                    </button>
+                )}
             </div>
 
         </div>
