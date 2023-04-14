@@ -3,7 +3,6 @@ import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { profileThunk, updateUserThunk } from "../../services/users/users-thunks";
 import { findUserById } from "../../services/users/users-service";
-import { editProfile } from "./customer-reducer";
 import {Link} from "react-router-dom";
 import "../index.css";
 import '@fortawesome/fontawesome-free/css/all.min.css'
