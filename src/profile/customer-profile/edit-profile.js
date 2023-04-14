@@ -1,20 +1,31 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
+import { profileThunk, updateUserThunk } from "../../services/users/users-thunks";
+import { findUserById } from "../../services/users/users-service";
 import { editProfile } from "./customer-reducer";
 import {Link} from "react-router-dom";
 import "../index.css";
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
 function EditCustomerProfile () {
-    const { customer } = useSelector((state) => state.customer);
-    const dispatch = useDispatch(); 
-    const [profile, setProfile] = useState(customer);
-    const handleSave = () => {
-        dispatch(editProfile(profile));
+    const { currentUser } = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [profile, setProfile] = useState(currentUser);
+    useEffect(() => {
+        dispatch(profileThunk());
+    }, []);
+    const updateProfile = async () => {
+        if (profile){
+            dispatch(updateUserThunk(profile));
+        }
     };
 
     return(
         <div>
+            {profile && (
+                <div>
             <div className="row">
                 <div className="col-1">
                     <Link to="/profile/customer"><i className="bi bi-x-lg text-muted"></i></Link>
@@ -23,13 +34,15 @@ function EditCustomerProfile () {
                     <span className="fw-bold mt-4">Edit profile</span>
                 </div>
                 <div className="col-2">
-                    <Link to="/profile/customer">
-                        <button className="rounded-pill float-end save-button me-2" onClick={handleSave}>Save</button></Link>
+                        <button className="rounded-pill float-end save-button me-2" onClick={() => {
+                            dispatch(updateProfile);
+                            navigate("/profile");
+                        }}>Save</button>
                 </div>
                 
                 <div className="position-relative">
-                    <img src = {customer.bannerPicture} className="img-fluid mt-2 mb-4 banner" alt=""/>
-                    <img src = {customer.profilePicture} className="rounded-circle profile-picture-edit ms-3" alt=""/>
+                    <img src = {profile.bannerPicture} className="img-fluid mt-2 mb-4 banner" alt=""/>
+                    <img src = {profile.profilePicture} className="rounded-circle profile-picture-edit ms-3" alt=""/>
                 </div>
             </div>
 
@@ -67,6 +80,8 @@ function EditCustomerProfile () {
                     <div>{profile.dateOfBirth}</div>
                 )}
             </div>
+                </div>
+            )}
         </div>
     )
 }
