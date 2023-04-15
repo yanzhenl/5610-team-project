@@ -57,7 +57,7 @@ function App() {
                               <Route path="/users" element={<AdminScreen/>} />
                               <Route path="/profile/*" element={<ProfileComponent/>} />
                               <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
-                              <Route path="/farmers-home/product-detail" element={<ProductDetail/>}/>
+                              <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>
                               <Route path="/farmers-home/edit-detail" element={<EditProductDetail/>}/>
                               <Route path="/order-history" element={<PastOrderList/>}/>
                               <Route path="/order-history/detail" element={<OrderDetail/>}/>

@@ -1,8 +1,9 @@
 import React from "react";
-import {useLocation, useNavigate} from "react-router";
+import {useLocation, useNavigate, useParams} from "react-router";
 import {Link} from "react-router-dom";
 
 const ProductDetail = () => {
+  const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const product = location.state.product

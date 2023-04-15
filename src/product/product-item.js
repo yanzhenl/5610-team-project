@@ -15,17 +15,18 @@ const ProductItem = (
       }
     }
 ) => {
-  const navigate = useNavigate();
-  function handleImageClick() {
-    navigate('/farmers-home/product-detail', {state: {product}});
-  }
+  console.log(product.images.sizes)
+  // const navigate = useNavigate();
+  // function handleImageClick() {
+  //   navigate('/farmers-home/product-detail', {state: {product}});
+  // }
   return (
       <div className="border rounded-2">
         {/*<Link to='/farmers-home/product-detail' state={product} style={{textDecoration : "none"}}>*/}
         {/*  <img src={`images/${product.image}`} alt={product.id} height={200} className="rounded-top w-100"/>*/}
         {/*</Link>*/}
-        <div onClick={handleImageClick}>
-          <img src={`${product.img}`} alt={product.id} height={200} className="rounded-top w-100"/>
+        <div>
+          <img src={`${product.images[1]}`} alt={product.productId} height={200} className="rounded-top w-100"/>
         </div>
         <div>
           <span className="ps-2 fw-bold">
