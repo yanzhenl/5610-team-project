@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { profileThunk, updateUserThunk } from "../../services/users/users-thunks";
-import { findUserById } from "../../services/users/users-service";
 import {Link} from "react-router-dom";
 import "../index.css";
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -15,12 +14,13 @@ function EditCustomerProfile () {
 
     useEffect(() => {
         dispatch(profileThunk());
-    }, []);
+    }, [profile]);
 
     const updateProfile = async () => {
         if (profile){
-            dispatch(updateUserThunk(profile));
+            await dispatch(updateUserThunk(profile));
         }
+        navigate("/profile");
     };
 
     return(
@@ -29,7 +29,7 @@ function EditCustomerProfile () {
                 <div>
                     <div className="row">
                         <div className="col-1">
-                            <Link to="/profile/customer"><i className="bi bi-x-lg text-muted"></i></Link>
+                            <Link to="/profile"><i className="bi bi-x-lg text-muted"></i></Link>
                         </div>
                         <div className="col-9">
                             <span className="fw-bold mt-4">Edit profile</span>
@@ -37,9 +37,7 @@ function EditCustomerProfile () {
                         <div className="col-2">
                             <button
                                 className="rounded-pill float-end save-button me-2"
-                                onClick={() => {
-                                    dispatch(updateUserThunk(profile));
-                                    navigate("/profile");}}>
+                                onClick={updateProfile}>
                                 Save
                             </button>
 

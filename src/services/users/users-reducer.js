@@ -24,9 +24,14 @@ const usersSlice = createSlice({
     reducers: {},
     extraReducers: {
         [updateUserThunk.fulfilled]: (state, action) => {
-            state.users = state.users.map((user) =>
-                user.id === action.payload.id ? action.payload : user
-            );
+            // state.users = state.users.map((user) =>
+            //     user._id === action.payload._id ? action.payload : user
+            // );
+            const index = state.users.findIndex((user) => user._id === action.payload._id);
+            state.users[index] = {
+                ...state.users[index],
+                ...action.payload
+            }
         },
         [createUserThunk.fulfilled]: (state, action) => {
             state.users.push(action.payload);
@@ -52,6 +57,7 @@ const usersSlice = createSlice({
         [findUserByIdThunk.fulfilled]: (state, action) => {
             state.loading = false;
             state.currentUser = action.payload;
+            console.log("abc");
         },
         [loginThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;
@@ -61,6 +67,7 @@ const usersSlice = createSlice({
         },
         [profileThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;
+            state.users.push(action.payload);
         },
         [registerThunk.fulfilled]: (state, action) => {
             state.currentUser = action.payload;

@@ -14,8 +14,9 @@ export const createUser = (user) => {
     return axios.post(USERS_API_URL, user);
 };
 
-export const updateUser = (newUser) => {
-    return axios.put(`${USERS_API_URL}/${newUser._id}`, newUser);
+export const updateUser = async (newUser) => {
+    const response = await axios.put(`${USERS_API_URL}/${newUser._id}`, newUser);
+    return response.data;
 };
 
 export const deleteUser = (id) => {
@@ -34,6 +35,8 @@ export const register = (user) => {
     return axios.post(`${USERS_API_URL}/register`, user);
 };
 
-export const profile = () => {
-    return axios.get(`${USERS_API_URL}/profile`);
+export const profile = async () => {
+    return await axios.get(`${USERS_API_URL}/profile`);
+    // console.log(response.data);
+    // return response.data;
 };

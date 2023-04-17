@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { profileThunk } from "../../services/users/users-thunks";
+import {findAllUsersThunk, profileThunk, updateUserThunk} from "../../services/users/users-thunks";
 import { findUserById } from "../../services/users/users-service";
 import { useNavigate, useParams } from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -24,10 +24,10 @@ function CustomerProfile() {
   const loadScreen = async () => {
     await fetchProfile();
   };
+
   useEffect(() => {
     loadScreen();
   }, [userId]);
-  console.log("currentUser:", currentUser);
 
   return (
     <div>
