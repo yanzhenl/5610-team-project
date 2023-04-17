@@ -20,6 +20,7 @@ function EditCustomerProfile () {
         if (profile){
             await dispatch(updateUserThunk(profile));
         }
+        dispatch(profileThunk());
         navigate("/profile");
     };
 
