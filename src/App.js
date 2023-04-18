@@ -36,44 +36,44 @@ const store = configureStore(
             cart: Cart
         }
     }
-    );
+);
 
 function App() {
-  return (
-      <Provider store={store}>
-          <BrowserRouter>
-              <div className="container">
-                  <div className="row mt-2">
-                      <div className="col-2 col-md-2 col-lg-1 col-xl-2">
-                          <NavigationSidebar/>
-                      </div>
-                      <div className="col-10 col-md-10 col-lg-11 col-xl-10"
-                           style={{"position": "relative"}}>
-                          <Routes>
-                              <Route path="/" element={<HomePage/>}/>
-                              <Route path="/home" element={<HomePage/>}/>
-                              <Route path="/explore-farmer" element={<FarmerList/>}/>
-                              <Route path="/login" element={<Login/>}/>
-                              <Route path="/register" element={<Register/>}/>
-                              <Route path="/users" element={<AdminScreen/>} />
-                              <Route path="/profile/*" element={<ProfileComponent/>} />
-                              <Route path="/profile/:userId" element={<ProfileComponent />} />
-                              <Route path="/profile/:userId/edit-profile" element={<EditCustomerProfile/>}/>
-                              <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
-                              <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>
-                              <Route path="/farmers-home/edit-detail" element={<EditProductDetail/>}/>
-                              <Route path="/order-history" element={<PastOrderList/>}/>
-                              <Route path="/order-history/detail" element={<OrderDetail/>}/>
-                              <Route path="/cart-list" element={<CartList/>}/>
-                              <Route path="/cart-list/checkout" element={<Checkout/>}/>
-                              <Route path="/product-search" element={<ProductSearch/>}/>
-                          </Routes>
-                      </div>
-                  </div>
-              </div>
-          </BrowserRouter>
-      </Provider>
-  );
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <div className="container">
+                    <div className="row mt-2">
+                        <div className="col-2 col-md-2 col-lg-1 col-xl-2">
+                            <NavigationSidebar/>
+                        </div>
+                        <div className="col-10 col-md-10 col-lg-11 col-xl-10"
+                             style={{"position": "relative"}}>
+                            <Routes>
+                                <Route path="/" element={<HomePage/>}/>
+                                <Route path="/home" element={<HomePage/>}/>
+                                <Route path="/explore-farmer" element={<FarmerList/>}/>
+                                <Route path="/login" element={<Login/>}/>
+                                <Route path="/register" element={<Register/>}/>
+                                <Route path="/users" element={<AdminScreen/>} />
+                                <Route path="/profile/*" element={<ProfileComponent/>} />
+                                <Route path="/profile/:userId" element={<ProfileComponent />} />
+                                <Route path="/profile/:userId/edit-profile" element={<EditCustomerProfile/>}/>
+                                <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
+                                <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>
+                                <Route path="/farmers-home/edit-detail" element={<EditProductDetail/>}/>
+                                <Route path="/order-history" element={<PastOrderList/>}/>
+                                <Route path="/order-history/detail" element={<OrderDetail/>}/>
+                                <Route path="/cart-list" element={<CartList/>}/>
+                                <Route path="/cart-list/checkout" element={<Checkout/>}/>
+                                <Route path="/product-search" element={<ProductSearch/>}/>
+                            </Routes>
+                        </div>
+                    </div>
+                </div>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 
 export default App;

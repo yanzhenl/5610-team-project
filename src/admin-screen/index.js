@@ -46,6 +46,7 @@ function AdminScreen() {
                                             <div style={{color: "gray"}}>
                                                 {user.handle}
                                             </div>
+
                                             {user.firstName} {user.lastName} {user.businessName}
                                         </div>
 

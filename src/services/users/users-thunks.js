@@ -53,11 +53,20 @@ export const logoutThunk = createAsyncThunk("users/logout", async () => {
 
 export const registerThunk = createAsyncThunk(
     "users/register",
-    async (user) => {
-        const response = await userService.register(user);
-        return response.data;
+    async (user, { rejectWithValue }) => {
+        try {
+            const response = await userService.register(user);
+            return response.data;
+        } catch (err) {
+            if (err.response && err.response.status === 409) {
+                return rejectWithValue("Username already exists, please try another.");
+            } else {
+                return rejectWithValue("An error occurred during registration.");
+            }
+        }
     }
 );
+
 
 export const profileThunk = createAsyncThunk("users/profile", async () => {
     const response = await userService.profile();

@@ -75,7 +75,7 @@ function Register() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const register = () => {
+    const register = async () => {
         try {
             if (password !== confirmPassword) {
                 setErrorMessage("Passwords do not match.");
@@ -85,19 +85,25 @@ function Register() {
             let user;
             if (isConsumer) {
                 user = { username, password, firstName, lastName };
-                dispatch(registerThunk(user));
-                navigate("/home");
             } else {
                 user = { username, password, businessName };
-                dispatch(registerThunk(user));
-                navigate("/profile");
             }
 
+            const response = await dispatch(registerThunk(user));
+            if (response.error) {
+                setErrorMessage(response.payload || "An error occurred during registration.");
+                return;
+            }
+
+            if (isConsumer) {
+                navigate("/home");
+            } else {
+                navigate("/profile");
+            }
         } catch (err) {
             console.log(err);
         }
     };
-
 
 
 
