@@ -24,6 +24,32 @@ function EditCustomerProfile () {
         navigate("/profile");
     };
 
+    const handleProfilePicUpload = (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setProfile({...profile, profilePicture: reader.result});
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
+    const handleBannerPicUpload = (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setProfile({...profile, bannerPicture: reader.result});
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
+
     return(
         <div>
             {profile && (
@@ -45,9 +71,28 @@ function EditCustomerProfile () {
                         </div>
 
                         <div className="position-relative">
-                            < img src = {profile.bannerPicture} className="img-fluid mt-2 mb-4 banner" alt=""/>
-                            < img src = {profile.profilePicture} className="rounded-circle profile-picture-edit ms-3" alt=""/>
+                            <img src={profile.bannerPicture} className="img-fluid mt-2 mb-4 banner" alt="" />
+                            <label className="banner-upload-icon-container">
+                                <i className="bi bi-camera-fill upload-icon"></i>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="upload-input"
+                                    onChange={handleBannerPicUpload}
+                                />
+                            </label>
+                            <img src={profile.profilePicture} className="rounded-circle profile-picture-edit ms-3" alt="" />
+                            <label className="profile-upload-icon-container">
+                                <i className="bi bi-camera-fill upload-icon"></i>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="upload-input"
+                                    onChange={handleProfilePicUpload}
+                                />
+                            </label>
                         </div>
+
                     </div>
 
                     <form className="form-floating mt-5">
@@ -63,7 +108,7 @@ function EditCustomerProfile () {
                     </form>
 
                     <form className="form-floating mt-4">
-                <textarea value={profile.bio} onChange={(e) => setProfile({...profile, bio: e.target.value})}
+                    <textarea value={profile.bio} onChange={(e) => setProfile({...profile, bio: e.target.value})}
                           className="form-control textarea-height"/>
                         <label className="floatingInputValue">Bio</label>
                     </form>
