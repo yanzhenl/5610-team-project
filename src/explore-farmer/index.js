@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import farmerArray from "../home/produce-list/produce.json";
 import FarmerItem from "./farmer-item";
+import {useDispatch} from "react-redux";
+import {profileThunk} from "../services/users/users-thunks";
 
 const FarmerList = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(profileThunk());
+    }, []);
+
     return (
         <div className="container">
             <div className="row mb-4">
