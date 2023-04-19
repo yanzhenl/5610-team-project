@@ -14,8 +14,11 @@ import "../index.css";
 
 function CustomerProfile() {
     const {userId} = useParams();
-    const {currentUser} = useSelector((state) => state.users);
+    let currentUser = useSelector((state) => state.users);
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const [profile, setProfile] = useState(currentUser);
+    const [following, setFollowing] = useState([]);
+    const [follows, setFollows] = useState([]);
     const dispatch = useDispatch();
     const fetchProfile = async () => {
         if (userId) {
@@ -26,14 +29,27 @@ function CustomerProfile() {
         const response = await dispatch(profileThunk());
         setProfile(response.payload);
     };
+
     const loadScreen = async () => {
         await fetchProfile();
+        await fetchFollowing();
+        await fetchFollowers();
     };
 
     const followUser = async () => {
-        await userFollowsUser(currentUser._id, userId);
+        console.log(currentUser._id, profile._id);
+        await userFollowsUser(currentUser._id, profile._id);
     };
-    console.log(currentUser);
+
+    const fetchFollowing = async () => {
+        // console.log(profile._id);
+        const following = await findFollowsByFollowerId(profile._id);
+        setFollowing(following);
+    };
+    const fetchFollowers = async () => {
+        const follows = await findFollowsByFollowedId(profile._id);
+        setFollows(follows);
+    };
 
     useEffect(() => {
         loadScreen();
@@ -72,7 +88,7 @@ function CustomerProfile() {
                                 <div className="text-muted ms-4">{profile.handle}</div>
                             </div>
                             <div className="col-2 ms-5">
-                                {profile !== currentUser ? (
+                                {profile._id !== currentUser._id ? (
                                     <button onClick={followUser} className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
                                         Follow
                                     </button>

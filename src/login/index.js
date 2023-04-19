@@ -10,6 +10,7 @@ import {loginThunk} from "../services/users/users-thunks";
 
 function Login() {
     const {currentUser} = useSelector((state) => state.users);
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
