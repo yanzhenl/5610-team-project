@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {findAllUsersThunk, profileThunk, updateUserThunk} from "../../services/users/users-thunks";
+import {profileThunk, updateUserThunk} from "../../services/users/users-thunks";
 import {findUserById} from "../../services/users/users-service";
+import {
+    userFollowsUser,
+    findFollowsByFollowerId,
+    findFollowsByFollowedId,
+} from "../../services/follows-service";
 import {useNavigate, useParams} from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../index.css";
@@ -24,6 +29,11 @@ function CustomerProfile() {
     const loadScreen = async () => {
         await fetchProfile();
     };
+
+    const followUser = async () => {
+        await userFollowsUser(currentUser._id, userId);
+    };
+    console.log(currentUser);
 
     useEffect(() => {
         loadScreen();
@@ -63,7 +73,7 @@ function CustomerProfile() {
                             </div>
                             <div className="col-2 ms-5">
                                 {profile !== currentUser ? (
-                                    <button className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
+                                    <button onClick={followUser} className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
                                         Follow
                                     </button>
                                 ) : (
