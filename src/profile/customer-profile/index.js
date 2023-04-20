@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {profileThunk} from "../../services/users/users-thunks";
+import {profileThunk, updateUserThunk} from "../../services/users/users-thunks";
 import {findUserById} from "../../services/users/users-service";
 import {
     userFollowsUser,
@@ -47,11 +47,28 @@ function CustomerProfile() {
 
     const followUser = async () => {
         console.log(currentUser._id, profile._id);
+        await dispatch(updateUserThunk({
+            ...profile,
+            followersCount: profile.followersCount + 1,
+        }));
         await userFollowsUser(currentUser._id, profile._id);
+        await dispatch(updateUserThunk({
+            ...currentUser,
+            followingCount: currentUser.followingCount + 1,
+        }));
+        await fetchFollow();
     };
 
     const unfollowUser = async () => {
+        await dispatch(updateUserThunk({
+            ...profile,
+            followersCount: profile.followersCount - 1,
+        }));
         await userUnfollowsUser(currentUser._id, profile._id);
+        await dispatch(updateUserThunk({
+            ...currentUser,
+            followingCount: currentUser.followingCount - 1,
+        }));
     }
 
     const fetchFollowing = async () => {
