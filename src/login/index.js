@@ -17,6 +17,7 @@ function Login() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const login = async () => {
         try {
             const result = await dispatch(loginThunk({ username, password }));
@@ -36,7 +37,6 @@ function Login() {
             console.log(err);
         }
     };
-
 
 
 
@@ -74,16 +74,6 @@ function Login() {
                     )}
 
                     <button onClick={login} className="wd-login-button" type="submit">Log in</button>
-
-                    <div>
-                        {currentUser && (
-                            <div>
-                                <h2>{currentUser.username}</h2>
-                                <h2>{currentUser.password}</h2>
-                                <h2>{currentUser.firstName}</h2>
-                            </div>
-                        )}
-                    </div>
 
 
                     <div className="mt-4">

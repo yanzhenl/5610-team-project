@@ -11,11 +11,9 @@ const NavigationSidebar = () => {
     currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const { pathname } = useLocation();
     const paths = pathname.split("/");
     const initialActive = paths[2];
-
     const [active, setActive] = useState(initialActive);
 
     const handleClick = (newActive) => {
@@ -25,8 +23,10 @@ const NavigationSidebar = () => {
     const handleLogout = async () => {
         await dispatch(logoutThunk());
         setActive("");
+        localStorage.removeItem("currentUser"); // remove currentUser from localStorage
         navigate("/login");
     };
+
 
     return (
         <div className="wd-sticky-sidebar">
