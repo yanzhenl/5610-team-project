@@ -27,9 +27,6 @@ function ProfileComponent() {
   return (
     <Provider store={store}>
       <div>
-        <Link to="/profile/administrator">Administrator</Link>|
-        <Link to="/profile/customer">Customer</Link>|
-        <Link to="/profile/farmer">Farmer</Link>
         <Routes>
           <Route path="/" element={<CustomerProfile />} />
           <Route path="customer" element={<CustomerProfile />} />
