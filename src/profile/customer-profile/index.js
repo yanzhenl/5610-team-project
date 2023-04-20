@@ -47,13 +47,14 @@ function CustomerProfile() {
         setFollowing(following);
     };
     const fetchFollowers = async () => {
+        console.log(profile)
         const follows = await findFollowsByFollowedId(profile._id);
         setFollows(follows);
     };
 
     useEffect(() => {
         loadScreen();
-    }, [userId]);
+    }, [userId, profile._id]);
 
     return (
         <div>
