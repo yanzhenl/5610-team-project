@@ -27,16 +27,14 @@ function ProfileComponent() {
   return (
     <Provider store={store}>
       <div>
-        <Link to="/profile/administrator">Administrator</Link>|
-        <Link to="/profile/customer">Customer</Link>|
-        <Link to="/profile/farmer">Farmer</Link>
         <Routes>
-          <Route path="administrator" element={<AdministratorProfile />} />
           <Route path="/" element={<CustomerProfile />} />
           <Route path="customer" element={<CustomerProfile />} />
+          <Route path="/:userId" element={<CustomerProfile />} />
           <Route path="farmer" element={<FarmerProfile />} />
           <Route path="farmer/edit-profile" element={<EditFarmerProfile />} />
           <Route path="customer/edit-profile" element={<EditCustomerProfile />} />
+          <Route path="administrator" element={<AdministratorProfile />} />
           <Route path="administrator/edit-profile" element={<EditAdministratorProfile />} />
         </Routes>
       </div>

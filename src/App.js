@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import ProfileComponent from "./profile";
-import EditCustomerProfile from "./profile/customer-profile/edit-profile";
 import { configureStore } from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 import productReducer from "./product/product-reducer";
@@ -57,8 +56,6 @@ function App() {
                                 <Route path="/register" element={<Register/>}/>
                                 <Route path="/users" element={<AdminScreen/>} />
                                 <Route path="/profile/*" element={<ProfileComponent/>} />
-                                <Route path="/profile/:userId" element={<ProfileComponent />} />
-                                <Route path="/profile/:userId/edit-profile" element={<EditCustomerProfile/>}/>
                                 <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
                                 <Route path="/farmers-home/:searchTerm" element={<FarmersHomeComponent/>}/>
                                 <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>

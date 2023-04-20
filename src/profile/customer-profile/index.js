@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {profileThunk, updateUserThunk} from "../../services/users/users-thunks";
+import {profileThunk} from "../../services/users/users-thunks";
 import {findUserById} from "../../services/users/users-service";
 import {
     userFollowsUser,
@@ -14,8 +14,11 @@ import "../index.css";
 
 function CustomerProfile() {
     const {userId} = useParams();
-    const {currentUser} = useSelector((state) => state.users);
+    let currentUser = useSelector((state) => state.users);
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const [profile, setProfile] = useState(currentUser);
+    const [following, setFollowing] = useState([]);
+    const [follows, setFollows] = useState([]);
     const dispatch = useDispatch();
     const fetchProfile = async () => {
         if (userId) {
@@ -26,14 +29,27 @@ function CustomerProfile() {
         const response = await dispatch(profileThunk());
         setProfile(response.payload);
     };
+
     const loadScreen = async () => {
         await fetchProfile();
+        await fetchFollowing();
+        await fetchFollowers();
     };
 
     const followUser = async () => {
-        await userFollowsUser(currentUser._id, userId);
+        console.log(currentUser._id, profile._id);
+        await userFollowsUser(currentUser._id, profile._id);
     };
-    console.log(currentUser);
+
+    const fetchFollowing = async () => {
+        console.log(profile)
+        const following = await findFollowsByFollowerId(profile._id);
+        setFollowing(following);
+    };
+    const fetchFollowers = async () => {
+        const follows = await findFollowsByFollowedId(profile._id);
+        setFollows(follows);
+    };
 
     useEffect(() => {
         loadScreen();
@@ -72,15 +88,16 @@ function CustomerProfile() {
                                 <div className="text-muted ms-4">{profile.handle}</div>
                             </div>
                             <div className="col-2 ms-5">
-                                {profile !== currentUser ? (
-                                    <button onClick={followUser} className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
+                                {profile._id !== currentUser._id ? (
+                                    <button onClick={followUser}
+                                            className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
                                         Follow
                                     </button>
                                 ) : (
                                     <Link to={"/profile/customer/edit-profile"}>
-                                    <button className="rounded-pill float-end mt-2 button">
-                                    Edit profile
-                                    </button>
+                                        <button className="rounded-pill float-end mt-2 button">
+                                            Edit profile
+                                        </button>
                                     </Link>
                                 )}
                                 {/*<Link to={"/profile/customer/edit-profile"}>*/}
@@ -102,16 +119,48 @@ function CustomerProfile() {
                             <span className="ms-1">Joined {profile.dateJoined}</span>
                         </div>
                         <div className="text-muted ms-3 mt-2">
-              <span className="fw-bold text-black">
-                {profile.followingCount}
-              </span>
+                            <span className="fw-bold text-black">
+                                {profile.followingCount}
+                            </span>
                             <span className="ms-1">Following</span>
                             <span className="fw-bold text-black ms-3">
-                {profile.followersCount}
-              </span>
+                            {profile.followersCount}
+                            </span>
                             <span className="ms-1">Followers</span>
                         </div>
                     </div>
+                </div>
+            )}
+            {follows && (
+                <div>
+                    <h2 className="text-center mt-4">Followers</h2>
+                    <ul className="list-group">
+                        {follows.map((follow) => (
+                            <li key={follow._id} className="list-group-item">
+                                <Link to={`/profile/${follow.follower._id}`}>
+                                    <img src={follow.follower.profilePicture}
+                                         alt="" className="rounded-circle profile-picture"/>
+                                    <div>{follow.follower.username}</div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            {following && (
+                <div>
+                    <h2 className="text-center mt-4">Following</h2>
+                    <ul className="list-group">
+                        {following.map((follow) => (
+                            <li key={follow._id} className="list-group-item">
+                                <Link to={`/profile/${follow.followed._id}`}>
+                                    <img src={follow.followed.profilePicture}
+                                         alt="" className="rounded-circle profile-picture"/>
+                                    <div>{follow.followed.username}</div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>
