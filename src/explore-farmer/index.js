@@ -26,7 +26,7 @@ const FarmerList = () => {
             <div className="row">
                 {
                     farmerArray.map(farmer => (
-                        <div>
+                        <div key={farmer.id}>
                             <FarmerItem farmer={farmer} />
                         </div>
                     ))
