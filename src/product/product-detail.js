@@ -41,12 +41,12 @@ const ProductDetail = () => {
         <div className={"container"}>
           <img src={`${product.img}`} alt={id} height={400} className="rounded-3"/>
           <span className="position-relative" style={{left: 460, bottom: 400}}>
-            <h3 className="float-end">${product.price}/lb</h3>
             <h3>{product.name}</h3>
             <button type="button" className="float-end btn btn-outline-primary btn-sm"
                     style={{ borderRadius: '25px', padding: '0.15rem 0.75rem' }}>
               <i className="bi bi-cart-plus"></i>
             </button>
+            <h3>${product.price}/lb</h3>
             {/*{product.descriptions}<br/>*/}
             {/*{product.availability === true && "In Stock"}*/}
             {/*{product.availability === false && "Out of Stock"}*/}
