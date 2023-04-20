@@ -66,7 +66,7 @@ function CustomerProfile() {
                         </div>
                         <div className="col-11">
                             <div className="fw-bold">
-                                {profile.firstName} {profile.lastName}
+                                {profile.firstName} {profile.lastName} {profile.businessName}
                             </div>
                         </div>
                         <img
@@ -84,7 +84,7 @@ function CustomerProfile() {
                             </div>
                             <div className="col-8 ms-4">
                                 <div className="fw-bold ms-4 mt-4">
-                                    {profile.firstName} {profile.lastName}
+                                    {profile.firstName} {profile.lastName} {profile.businessName}
                                 </div>
                                 <div className="text-muted ms-4">{profile.handle}</div>
                             </div>
