@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {profileThunk, updateUserThunk} from "../../services/users/users-thunks";
+import {profileThunk} from "../../services/users/users-thunks";
 import {findUserById} from "../../services/users/users-service";
 import {
     userFollowsUser,
@@ -42,7 +42,7 @@ function CustomerProfile() {
     };
 
     const fetchFollowing = async () => {
-        // console.log(profile._id);
+        console.log(profile)
         const following = await findFollowsByFollowerId(profile._id);
         setFollowing(following);
     };
@@ -89,14 +89,15 @@ function CustomerProfile() {
                             </div>
                             <div className="col-2 ms-5">
                                 {profile._id !== currentUser._id ? (
-                                    <button onClick={followUser} className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
+                                    <button onClick={followUser}
+                                            className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
                                         Follow
                                     </button>
                                 ) : (
                                     <Link to={"/profile/customer/edit-profile"}>
-                                    <button className="rounded-pill float-end mt-2 button">
-                                    Edit profile
-                                    </button>
+                                        <button className="rounded-pill float-end mt-2 button">
+                                            Edit profile
+                                        </button>
                                     </Link>
                                 )}
                                 {/*<Link to={"/profile/customer/edit-profile"}>*/}
@@ -118,16 +119,48 @@ function CustomerProfile() {
                             <span className="ms-1">Joined {profile.dateJoined}</span>
                         </div>
                         <div className="text-muted ms-3 mt-2">
-              <span className="fw-bold text-black">
-                {profile.followingCount}
-              </span>
+                            <span className="fw-bold text-black">
+                                {profile.followingCount}
+                            </span>
                             <span className="ms-1">Following</span>
                             <span className="fw-bold text-black ms-3">
-                {profile.followersCount}
-              </span>
+                            {profile.followersCount}
+                            </span>
                             <span className="ms-1">Followers</span>
                         </div>
                     </div>
+                </div>
+            )}
+            {follows && (
+                <div>
+                    <h2 className="text-center mt-4">Followers</h2>
+                    <ul className="list-group">
+                        {follows.map((follow) => (
+                            <li key={follow._id} className="list-group-item">
+                                <Link to={`/profile/${follow.follower._id}`}>
+                                    <img src={follow.follower.profilePicture}
+                                         alt="" className="rounded-circle profile-picture"/>
+                                    <div>{follow.follower.username}</div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            {following && (
+                <div>
+                    <h2 className="text-center mt-4">Following</h2>
+                    <ul className="list-group">
+                        {following.map((follow) => (
+                            <li key={follow._id} className="list-group-item">
+                                <Link to={`/profile/${follow.followed._id}`}>
+                                    <img src={follow.followed.profilePicture}
+                                         alt="" className="rounded-circle profile-picture"/>
+                                    <div>{follow.followed.username}</div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             )}
         </div>
