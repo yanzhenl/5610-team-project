@@ -95,17 +95,31 @@ function EditCustomerProfile () {
 
                     </div>
 
-                    <form className="form-floating mt-5">
-                        <input value={profile.firstName} onChange={(e) => setProfile({...profile, firstName: e.target.value})}
-                               className="form-control"/>
-                        <label className="floatingInputValue">First name</label>
-                    </form>
+                    {profile.role !== "FARMER" && (
+                        <>
+                            <form className="form-floating mt-5">
+                                <input value={profile.firstName} onChange={(e) => setProfile({...profile, firstName: e.target.value})}
+                                       className="form-control"/>
+                                <label className="floatingInputValue">First name</label>
+                            </form>
 
-                    <form className="form-floating mt-4">
-                        <input value={profile.lastName} onChange={(e) => setProfile({...profile, lastName: e.target.value})}
-                               className="form-control"/>
-                        <label className="floatingInputValue">Last name</label>
-                    </form>
+                            <form className="form-floating mt-4">
+                                <input value={profile.lastName} onChange={(e) => setProfile({...profile, lastName: e.target.value})}
+                                       className="form-control"/>
+                                <label className="floatingInputValue">Last name</label>
+                            </form>
+                        </>
+                    )}
+
+                    {profile.role === "FARMER" && (
+                        <>
+                            <form className="form-floating mt-5">
+                                <input value={profile.businessName} onChange={(e) => setProfile({...profile, businessName: e.target.value})}
+                                       className="form-control"/>
+                                <label className="floatingInputValue">First name</label>
+                            </form>
+                        </>
+                    )}
 
                     <form className="form-floating mt-4">
                     <textarea value={profile.bio} onChange={(e) => setProfile({...profile, bio: e.target.value})}
