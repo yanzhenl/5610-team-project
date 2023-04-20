@@ -7,6 +7,8 @@ import {
     userFollowsUser,
     findFollowsByFollowerId,
     findFollowsByFollowedId,
+    findFollowsByFollowerIdAndFollowedId,
+    userUnfollowsUser,
 } from "../../services/follows-service";
 import {useNavigate, useParams} from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -19,6 +21,7 @@ function CustomerProfile() {
     const [profile, setProfile] = useState(currentUser);
     const [following, setFollowing] = useState([]);
     const [follows, setFollows] = useState([]);
+    const [follow, setFollow] = useState(null);
     const dispatch = useDispatch();
     const fetchProfile = async () => {
         if (userId) {
@@ -30,10 +33,16 @@ function CustomerProfile() {
         setProfile(response.payload);
     };
 
+    const fetchFollow = async () => {
+        const data = await findFollowsByFollowerIdAndFollowedId(currentUser._id, profile._id);
+        setFollow(data);
+    };
+
     const loadScreen = async () => {
         await fetchProfile();
         await fetchFollowing();
         await fetchFollowers();
+        await fetchFollow();
     };
 
     const followUser = async () => {
@@ -41,20 +50,22 @@ function CustomerProfile() {
         await userFollowsUser(currentUser._id, profile._id);
     };
 
+    const unfollowUser = async () => {
+        await userUnfollowsUser(currentUser._id, profile._id);
+    }
+
     const fetchFollowing = async () => {
-        console.log(profile)
         const following = await findFollowsByFollowerId(profile._id);
         setFollowing(following);
     };
     const fetchFollowers = async () => {
-        console.log(profile)
         const follows = await findFollowsByFollowedId(profile._id);
         setFollows(follows);
     };
 
     useEffect(() => {
         loadScreen();
-    }, [userId, profile._id]);
+    }, [userId, profile._id, follow]);
 
     return (
         <div>
@@ -90,10 +101,17 @@ function CustomerProfile() {
                             </div>
                             <div className="col-2 ms-5">
                                 {profile._id !== currentUser._id ? (
-                                    <button onClick={followUser}
-                                            className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
-                                        Follow
-                                    </button>
+                                    follow ? (
+                                        <button onClick={unfollowUser}
+                                                className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
+                                            Unfollow
+                                        </button>
+                                    ) : (
+                                        <button onClick={followUser}
+                                                className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
+                                            Follow
+                                        </button>
+                                    )
                                 ) : (
                                     <Link to={"/profile/customer/edit-profile"}>
                                         <button className="rounded-pill float-end mt-2 button">
