@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const NavigationSidebar = () => {
-    const { currentUser } = useSelector((state) => state.users);
+    let { currentUser } = useSelector((state) => state.users);
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
