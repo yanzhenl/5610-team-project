@@ -4,12 +4,16 @@ import ProductList from "../product";
 const FarmersHomeComponent = () => {
   return (
       <>
-        <h1>farmers home</h1>
-        <div className="position-relative mb-2">
-          <img src="/images/home-banner.png" className="w-100 mb-3"/>
-          <h1 className="position-relative wd-picture-letter text-warning" style={{left: "50"}}>
-            Welcome to your local Farmer's Market
-          </h1>
+        <div className="row mb-4">
+          <div className="position-relative mb-2 wd-cropped-image wd-image-container">
+            <img src="/images/background.jpeg" className="w-100 mb-3"/>
+
+            <span className="position-absolute wd-picture-letter
+                                     text-light wd-text-shadow
+                                     d-none d-lg-block">
+                Welcome to your local Farmer's Market
+            </span>
+          </div>
         </div>
         <div>
           <ProductList/>

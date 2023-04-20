@@ -1,13 +1,22 @@
 import React, {useEffect, useState} from "react";
 import ProductItem from "./product-item";
 import {Link} from "react-router-dom";
+import {useNavigate, useParams} from "react-router";
 
 const ProductList = () => {
-  const [query, setQuery] = useState('')
-  const [finalQuery, setFinalQuery] = useState('')
+  const {searchTerm} = useParams();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState(searchTerm)
+  const [finalQuery, setFinalQuery] = useState('vegetables')
+
   const [products,setProducts] = useState([]);
 
-  const url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=77494&keyword=+${finalQuery}&limit=60&offset=0`;
+  let url = '';
+  if(searchTerm) {
+    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=77494&keyword=${query}&limit=60&offset=0`;
+  } else {
+    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=77494&keyword=${finalQuery}&limit=60&offset=0`;
+  }
 
   const options = {
     method: 'GET',
@@ -24,11 +33,17 @@ const ProductList = () => {
     .then((res) => {
       console.log(res.data.products);
       setProducts(res.data.products);
+      if (searchTerm) {
+        navigate(`/farmers-home/${query}`)
+      } else {
+        navigate(`/farmers-home/${finalQuery}`);
+      }
     })
     .catch((err) => {
       console.log(err.message);
     });
   }
+
 
   const sendHandler = () => {
     setFinalQuery(query);

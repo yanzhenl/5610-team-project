@@ -60,6 +60,7 @@ function App() {
                                 <Route path="/profile/:userId" element={<ProfileComponent />} />
                                 <Route path="/profile/:userId/edit-profile" element={<EditCustomerProfile/>}/>
                                 <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
+                                <Route path="/farmers-home/:searchTerm" element={<FarmersHomeComponent/>}/>
                                 <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>
                                 <Route path="/farmers-home/edit-detail" element={<EditProductDetail/>}/>
                                 <Route path="/order-history" element={<PastOrderList/>}/>
