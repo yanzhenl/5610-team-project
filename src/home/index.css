@@ -109,6 +109,8 @@
     background-color: #1bbb40; /* Change this color to your desired highlight color */
 }
 
-
+.padding-right-8 {
+    padding-right: 8px !important;
+}
 
 
