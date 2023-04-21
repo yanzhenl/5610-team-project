@@ -56,7 +56,7 @@ function App() {
                                 <Route path="/register" element={<Register/>}/>
                                 <Route path="/users" element={<AdminScreen/>} />
                                 <Route path="/profile/*" element={<ProfileComponent/>} />
-                                <Route path="/farmers-home" element={<FarmersHomeComponent/>}/>
+                                {/*<Route path="/farmers-home" element={<FarmersHomeComponent/>}/>*/}
                                 <Route path="/farmers/:businessName" element={<FarmersHomeComponent />} />
                                 <Route path="/farmers-home/:searchTerm" element={<FarmersHomeComponent/>}/>
                                 <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>

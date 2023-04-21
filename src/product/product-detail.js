@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router";
-import {Link} from "react-router-dom";
+import {useNavigate, useParams} from "react-router";
 
 const ProductDetail = () => {
+  const navigate = useNavigate()
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/details?product_id=${id}&zipcode=77494`;
@@ -30,12 +30,17 @@ const ProductDetail = () => {
     fetchme()
   }, []);
 
+  const handleClick = () => {
+    navigate(-1);
+  }
+
   return (
       <div style={{width : 500}}>
-        <button  className="btn rounded-pill text-dark pt-1 float-end">
-          <Link to={`/farmers-home/${product.category_name}`} style={{textDecoration : "none", color : "black"}}>
-            X
-          </Link>
+        <button  onClick={handleClick} className="btn rounded-pill text-dark pt-1 float-end">
+          {/*<Link to={`/farmers-home/${product.category_name}`} style={{textDecoration : "none", color : "black"}}>*/}
+          {/*  X*/}
+          {/*</Link>*/}
+          X
         </button>
         <h1>Product Detail</h1>
         <div className={"container"}>
