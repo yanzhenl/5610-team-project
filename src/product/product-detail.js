@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router";
+import ProductLike from "./product-like";
 
 const ProductDetail = () => {
   const navigate = useNavigate()
@@ -56,6 +57,7 @@ const ProductDetail = () => {
             {/*    className="btn rounded-pill border float-end">*/}
             {/*  Edit Detail*/}
             {/*</button>*/}
+            <ProductLike id={product.id}/>
           </span>
         </div>
       </div>

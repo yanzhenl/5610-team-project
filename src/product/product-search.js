@@ -12,7 +12,7 @@ const ProductSearch = ()=>{
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '85d45deaa1msh1d488391569a775p1f736djsn68be54b8776a',
+            'X-RapidAPI-Key': '56af78389dmsh0fe658990c44224p1aa19djsn2be0a4206a11',
             'X-RapidAPI-Host': 'weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com'
         }
     };
