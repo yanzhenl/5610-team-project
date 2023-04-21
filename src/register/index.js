@@ -64,6 +64,7 @@ function FarmerRegisterForm({ businessName, setBusinessName }) {
 
 function Register() {
     const {currentUser} = useSelector((state) => state.users);
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
     const [isConsumer, setIsConsumer] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
     const [username, setUsername] = useState("");
