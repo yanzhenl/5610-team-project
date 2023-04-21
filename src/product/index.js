@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {useNavigate, useParams} from "react-router";
 
 const ProductList = () => {
-  const {searchTerm} = useParams();
+  const {businessName, zipcode, searchTerm} = useParams();
   const navigate = useNavigate();
   const [query, setQuery] = useState(searchTerm)
   const [finalQuery, setFinalQuery] = useState('vegetables')
@@ -13,9 +13,9 @@ const ProductList = () => {
 
   let url = '';
   if(searchTerm) {
-    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=77494&keyword=${query}&limit=60&offset=0`;
+    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=${zipcode}&keyword=${query}&limit=60&offset=0`;
   } else {
-    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=77494&keyword=${finalQuery}&limit=60&offset=0`;
+    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=${zipcode}&keyword=${finalQuery}&limit=60&offset=0`;
   }
 
   const options = {
@@ -34,9 +34,9 @@ const ProductList = () => {
       console.log(res.data.products);
       setProducts(res.data.products);
       if (searchTerm) {
-        navigate(`/farmers-home/${query}`)
+        navigate(`/farmers/${businessName}/${zipcode}/${query}`)
       } else {
-        navigate(`/farmers-home/${finalQuery}`);
+        navigate(`/farmers/${businessName}/${zipcode}/${finalQuery}`);
       }
     })
     .catch((err) => {

@@ -58,10 +58,9 @@ function App() {
                                 <Route path="/register" element={<Register/>}/>
                                 <Route path="/users" element={<AdminScreen/>} />
                                 <Route path="/profile/*" element={<ProfileComponent/>} />
-                                {/*<Route path="/farmers-home" element={<FarmersHomeComponent/>}/>*/}
-                                <Route path="/farmers/:businessName" element={<FarmersHomeComponent />} />
-                                <Route path="/farmers-home/:searchTerm" element={<FarmersHomeComponent/>}/>
-                                <Route path="/farmers-home/product-detail/:id" element={<ProductDetail/>}/>
+                                <Route path="/farmers/:businessName/:zipcode" element={<FarmersHomeComponent />} />
+                                <Route path="/farmers/:businessName/:zipcode/:searchTerm" element={<FarmersHomeComponent/>}/>
+                                <Route path="/farmers/:businessName/:zipcode/:searchTerm/product-detail/:id" element={<ProductDetail/>}/>
                                 <Route path="/farmers-home/edit-detail" element={<EditProductDetail/>}/>
                                 <Route path="/order-history" element={<PastOrderList/>}/>
                                 <Route path="/order-history/detail" element={<OrderDetail/>}/>
