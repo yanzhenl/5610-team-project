@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 
 function FarmerList() {
     const { users } = useSelector((state) => state.users);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -53,9 +54,11 @@ function FarmerList() {
                                             {farmer.bio}
                                         </div>
                                     </div>
+                                    {currentUser &&(
                                     <div className="d-flex flex-column justify-content-center">
                                         <button className="btn btn-success rounded-pill me-1">Follow</button>
                                     </div>
+                                    )}
                                 </div>
                             </li>
                         </Link>
