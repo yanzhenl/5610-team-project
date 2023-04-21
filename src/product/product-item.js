@@ -43,10 +43,8 @@ const ProductItem = (
         {/*</div>*/}
         {/*<div>*/}
         <div className="mt-2 ps-2">
-            <Link to={`/farmers-home/product-detail/${product.id}`}>
-                <img height={200} className="w-100 rounded-4"
-                    src={`${product.img}`} alt={product.id}/>
-            </Link>
+          <img height={200} className="w-100 rounded-4"
+              src={`${product.img}`} alt={product.id}/>
         </div>
         <div className="mt-2 ps-2 mb-2 wd-truncate-title"
              style={{fontSize: "0.9rem", color: "dimgray"}}>

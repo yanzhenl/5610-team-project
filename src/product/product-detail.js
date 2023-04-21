@@ -4,7 +4,7 @@ import ProductLike from "./product-like";
 
 const ProductDetail = () => {
   const navigate = useNavigate()
-  const { id } = useParams();
+  const { businessName, zipcode, searchTerm, id } = useParams();
   const [product, setProduct] = useState({});
   const url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/details?product_id=${id}&zipcode=77494`;
   const options = {

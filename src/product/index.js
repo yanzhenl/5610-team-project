@@ -69,7 +69,7 @@ const ProductList = () => {
           {
             products.map(product =>(
                     <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4" key={product.id}>
-                      <Link to={`/farmers-home/product-detail/${product.id}`} style={{textDecoration: 'none', color: 'black'}}>
+                      <Link to={`/farmers/${businessName}/${zipcode}/${searchTerm}/product-detail/${product.id}`} style={{textDecoration: 'none', color: 'black'}}>
                         <ProductItem product={product}/>
                       </Link>
                     </li>
