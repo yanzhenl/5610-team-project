@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router";
 import CustomerProfile from "./customer-profile";
+import Profile from "./customer-profile/profile";
 import customerReducer from "./customer-profile/customer-reducer";
 import EditCustomerProfile from "./customer-profile/edit-profile";
 import AdministratorProfile from "./administrator-profile";
@@ -24,13 +25,20 @@ const store = configureStore({
 });
 
 function ProfileComponent() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   return (
     <Provider store={store}>
       <div>
         <Routes>
           <Route path="/" element={<CustomerProfile />} />
           <Route path="customer" element={<CustomerProfile />} />
-          <Route path="/:userId" element={<CustomerProfile />} />
+          {currentUser ? (
+              <Route path="/:userId" element={<CustomerProfile />} />
+            ) : (
+                <Route path="/:userId" element={<Profile />} />
+                )
+          }
           <Route path="farmer" element={<FarmerProfile />} />
           <Route path="farmer/edit-profile" element={<EditFarmerProfile />} />
           <Route path="customer/edit-profile" element={<EditCustomerProfile />} />

@@ -1,27 +1,22 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {profileThunk, updateUserThunk} from "../../services/users/users-thunks";
+import {profileThunk} from "../../services/users/users-thunks";
 import {findUserById} from "../../services/users/users-service";
 import {
-    userFollowsUser,
     findFollowsByFollowerId,
     findFollowsByFollowedId,
-    findFollowsByFollowerIdAndFollowedId,
-    userUnfollowsUser,
 } from "../../services/follows-service";
-import {useNavigate, useParams} from "react-router";
+import {useParams} from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../index.css";
 
-function CustomerProfile() {
+function Profile() {
     const {userId} = useParams();
-    let currentUser = useSelector((state) => state.users);
-    currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const [profile, setProfile] = useState(currentUser);
     const [following, setFollowing] = useState([]);
     const [follows, setFollows] = useState([]);
-    const [follow, setFollow] = useState(null);
     const dispatch = useDispatch();
     const fetchProfile = async () => {
         if (userId) {
@@ -33,56 +28,24 @@ function CustomerProfile() {
         setProfile(response.payload);
     };
 
-    const fetchFollow = async () => {
-        const data = await findFollowsByFollowerIdAndFollowedId(currentUser._id, profile._id);
-        setFollow(data);
-    };
-
     const loadScreen = async () => {
         await fetchProfile();
         await fetchFollowing();
         await fetchFollowers();
-        await fetchFollow();
     };
-
-    const followUser = async () => {
-        console.log(currentUser._id, profile._id);
-        await dispatch(updateUserThunk({
-            ...profile,
-            followersCount: profile.followersCount + 1,
-        }));
-        await userFollowsUser(currentUser._id, profile._id);
-        await dispatch(updateUserThunk({
-            ...currentUser,
-            followingCount: currentUser.followingCount + 1,
-        }));
-        await fetchFollow();
-    };
-
-    const unfollowUser = async () => {
-        await dispatch(updateUserThunk({
-            ...profile,
-            followersCount: profile.followersCount - 1,
-        }));
-        await userUnfollowsUser(currentUser._id, profile._id);
-        await dispatch(updateUserThunk({
-            ...currentUser,
-            followingCount: currentUser.followingCount - 1,
-        }));
-    }
 
     const fetchFollowing = async () => {
-        const following = await findFollowsByFollowerId(profile._id);
+        const following = await findFollowsByFollowerId(userId);
         setFollowing(following);
     };
     const fetchFollowers = async () => {
-        const follows = await findFollowsByFollowedId(profile._id);
+        const follows = await findFollowsByFollowedId(userId);
         setFollows(follows);
     };
 
     useEffect(() => {
         loadScreen();
-    }, [userId, profile._id, follow]);
+    }, [userId]);
 
     return (
         <div>
@@ -116,32 +79,6 @@ function CustomerProfile() {
                                 </div>
                                 <div className="text-muted ms-4">{profile.handle}</div>
                             </div>
-                            <div className="col-2 ms-5">
-                                {profile._id !== currentUser._id ? (
-                                    follow ? (
-                                        <button onClick={unfollowUser}
-                                                className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
-                                            Unfollow
-                                        </button>
-                                    ) : (
-                                        <button onClick={followUser}
-                                                className="rounded-pill float-end mt-2 btn btn-sm btn-warning">
-                                            Follow
-                                        </button>
-                                    )
-                                ) : (
-                                    <Link to={"/profile/customer/edit-profile"}>
-                                        <button className="rounded-pill float-end mt-2 button">
-                                            Edit profile
-                                        </button>
-                                    </Link>
-                                )}
-                                {/*<Link to={"/profile/customer/edit-profile"}>*/}
-                                {/*    <button className="rounded-pill float-end mt-2 button">*/}
-                                {/*        Edit profile*/}
-                                {/*    </button>*/}
-                                {/*</Link>*/}
-                            </div>
                         </div>
                     </div>
                     <div>
@@ -149,12 +86,6 @@ function CustomerProfile() {
                         <div className="text-muted ms-3 mt-2">
                             <i className="fa fa-location-dot mt-2"></i>
                             <span className="ms-1">{profile.location}</span>
-                            {profile._id !== currentUser._id ? (
-                                <></>
-                            ) : (
-                                <><i className="fa fa-birthday-cake ms-3 mt-2"></i>
-                                <span className="ms-1">{profile.dateOfBirth}</span></>
-                            )}
                             <i className="fa-regular fa-calendar ms-3 mt-2"></i>
                             <span className="ms-1">Joined {profile.dateJoined}</span>
                         </div>
@@ -207,4 +138,4 @@ function CustomerProfile() {
     );
 }
 
-export default CustomerProfile;
+export default Profile;
