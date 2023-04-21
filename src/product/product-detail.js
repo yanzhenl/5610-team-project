@@ -37,9 +37,6 @@ const ProductDetail = () => {
   return (
       <div style={{width : 500}}>
         <button  onClick={handleClick} className="btn rounded-pill text-dark pt-1 float-end">
-          {/*<Link to={`/farmers-home/${product.category_name}`} style={{textDecoration : "none", color : "black"}}>*/}
-          {/*  X*/}
-          {/*</Link>*/}
           X
         </button>
         <h1>Product Detail</h1>
