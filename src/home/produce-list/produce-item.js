@@ -15,25 +15,6 @@ const ProduceItem = (
 ) => {
     return(
 
-            // <li className="list-group-item">
-            //     <img className="col-1 rounded-pill float-start" src={`/images/${produce.profilePicture}`}/>
-            //     <div className="col-11 float-start">
-            //         <span className="ps-2 fw-bold">
-            //             {produce.userName}
-            //         </span>
-            //         <i className="bi bi-check-circle ps-1 wd-blue"></i>
-            //         <div className="ps-2">
-            //             {produce.title}
-            //         </div>
-            //         <div className="mt-2 ps-2">
-            //             <img height={200} className="w-100" src={`/images/${produce.producePicture}`}/>
-            //         </div>
-            //         <div className="mt-1 ms-2 fw-bold">
-            //             {produce.price}
-            //         </div>
-            //     </div>
-            // </li>
-
             <li className="list-group-item">
 
                 <div className="mt-2 ps-2">

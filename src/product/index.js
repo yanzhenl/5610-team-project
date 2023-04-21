@@ -62,6 +62,7 @@ const ProductList = () => {
             className="form-control w-75"
             type="text"
             value={query}
+            placeholder="Type to search..."
             onChange={(e) => setQuery(e.target.value)}
         />
         <ul className="row">

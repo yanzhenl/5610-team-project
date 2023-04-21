@@ -38,17 +38,31 @@ const NavigationSidebar = () => {
                     <span className="d-none d-xl-block float-start ms-2">FreshVibes</span>
                 </a>
 
-                <Link to="/home" className={`list-group-item list-group-item-action
-                    ${active === 'home'?'wd-active':''}`} onClick={() => handleClick("home")}>
-                    <i className="bi bi-house-fill float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Home</span>
-                </Link>
 
-                <Link to="/explore-farmer" className={`list-group-item list-group-item-action
-                ${active === 'explore-farmer'?'wd-active':''}`} onClick={() => handleClick("explore-farmer")}>
-                    <i className="bi bi-globe2 float-start"></i>
-                    <span className="d-none d-xl-block float-start ms-2">Explore farmer</span>
-                </Link>
+                {(!currentUser || currentUser.role !== "FARMER") && (
+                    <Link to="/home" className={`list-group-item list-group-item-action
+                    ${active === 'home'?'wd-active':''}`} onClick={() => handleClick("home")}>
+                        <i className="bi bi-house-fill float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Home</span>
+                    </Link>
+                )}
+
+
+                {currentUser && currentUser.role === "FARMER" && (
+                    <Link to="/farmers-home" className={`list-group-item list-group-item-action
+                    ${active === 'farmers-home'?'wd-active':''}`} onClick={() => handleClick("farmers-home")}>
+                        <i className="bi bi-house-fill float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Farmer's Home</span>
+                    </Link>
+                )}
+
+                {(!currentUser || currentUser.role !== "FARMER") && (
+                    <Link to="/explore-farmer" className={`list-group-item list-group-item-action
+                    ${active === 'explore-farmer'?'wd-active':''}`} onClick={() => handleClick("explore-farmer")}>
+                        <i className="bi bi-globe2 float-start"></i>
+                        <span className="d-none d-xl-block float-start ms-2">Explore farmer</span>
+                    </Link>
+                )}
 
                 {currentUser && currentUser.role === "ADMIN" && (
                     <Link to="/users" className={`list-group-item list-group-item-action
