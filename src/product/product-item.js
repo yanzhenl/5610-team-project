@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 const ProductItem = (
     {
@@ -42,8 +43,10 @@ const ProductItem = (
         {/*</div>*/}
         {/*<div>*/}
         <div className="mt-2 ps-2">
-          <img height={200} className="w-100 rounded-4"
-               src={`${product.img}`} alt={product.id}/>
+            <Link to={`/farmers-home/product-detail/${product.id}`}>
+                <img height={200} className="w-100 rounded-4"
+                    src={`${product.img}`} alt={product.id}/>
+            </Link>
         </div>
         <div className="mt-2 ps-2 mb-2 wd-truncate-title"
              style={{fontSize: "0.9rem", color: "dimgray"}}>

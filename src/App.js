@@ -24,6 +24,7 @@ import ProductSearch from "./product/product-search"
 import React from "react";
 import FarmerList from "./explore-farmer";
 import AdminScreen from "./admin-screen";
+import likesReducer from "./services/likes/likes-reducer";
 
 const store = configureStore(
     {
@@ -32,7 +33,8 @@ const store = configureStore(
             products: productReducer,
             past: PastReducer,
             detail:OrderDetailRudcer,
-            cart: Cart
+            cart: Cart,
+            likesData: likesReducer
         }
     }
 );
