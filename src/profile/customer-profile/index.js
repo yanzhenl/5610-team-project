@@ -174,13 +174,13 @@ function CustomerProfile() {
             {follows && (
                 <div>
                     <h2 className="text-center mt-4">Followers</h2>
-                    <ul className="list-group">
+                    <ul className="list-group flex-user">
                         {follows.map((follow) => (
-                            <li key={follow._id} className="list-group-item">
+                            <li key={follow._id} className="list-group-item border-transparent">
                                 <Link to={`/profile/${follow.follower._id}`}>
                                     <img src={follow.follower.profilePicture}
                                          alt="" className="rounded-circle profile-picture"/>
-                                    <div>{follow.follower.username}</div>
+                                    <div className="text-center">{follow.follower.username}</div>
                                 </Link>
                             </li>
                         ))}
@@ -190,13 +190,13 @@ function CustomerProfile() {
             {following && (
                 <div>
                     <h2 className="text-center mt-4">Following</h2>
-                    <ul className="list-group">
+                    <ul className="list-group flex-user">
                         {following.map((follow) => (
-                            <li key={follow._id} className="list-group-item">
+                            <li key={follow._id} className="list-group-item border-transparent">
                                 <Link to={`/profile/${follow.followed._id}`}>
                                     <img src={follow.followed.profilePicture}
                                          alt="" className="rounded-circle profile-picture"/>
-                                    <div>{follow.followed.username}</div>
+                                    <div className="text-center">{follow.followed.username}</div>
                                 </Link>
                             </li>
                         ))}

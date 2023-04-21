@@ -114,8 +114,6 @@
     z-index: 2;
 }
 
-
-
 .banner-upload-icon-container {
     top: 50%;
     left: 50%;
@@ -136,4 +134,11 @@
     transform: translate(-50%, -50%);
 }
 
+.list-group.flex-user {
+    display: flex;
+    flex-direction: row;
+}
 
+.border-transparent {
+    border-color: transparent !important;
+}
