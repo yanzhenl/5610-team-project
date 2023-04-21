@@ -34,6 +34,7 @@ function FarmerList() {
             <div className="container">
                 <div className="row">
                     {farmers.map((farmer) => (
+                        farmer.opened &&(
                         <Link to={`/farmers/${farmer.businessName}/${farmer.zipcode}`}
                               style={{ textDecoration: 'none', color: 'black' }}>
                             <li className="list-group-item mt-3 mb-2 d-flex align-items-center farmer-container">
@@ -58,6 +59,7 @@ function FarmerList() {
                                 </div>
                             </li>
                         </Link>
+                        )
                     ))}
                 </div>
             </div>

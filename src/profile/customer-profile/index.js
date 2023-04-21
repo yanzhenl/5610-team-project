@@ -10,7 +10,7 @@ import {
     findFollowsByFollowerIdAndFollowedId,
     userUnfollowsUser,
 } from "../../services/follows-service";
-import {useNavigate, useParams} from "react-router";
+import {useParams} from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../index.css";
 
@@ -80,6 +80,14 @@ function CustomerProfile() {
         setFollows(follows);
     };
 
+    const closeStore = async () => {
+        await dispatch(updateUserThunk({
+            ...profile,
+            opened: !profile.opened,
+        }));
+        await fetchProfile();
+    }
+
     useEffect(() => {
         loadScreen();
     }, [userId, profile._id, follow]);
@@ -136,6 +144,19 @@ function CustomerProfile() {
                                         </button>
                                     </Link>
                                 )}
+                                {profile._id === currentUser._id && currentUser.role === "FARMER" ? (
+                                    profile.opened ? (
+                                    <button onClick={closeStore}
+                                        className="btn btn-sm btn-danger float-end mt-2 rounded-pill me-3">
+                                        Close Store
+                                    </button>
+                                    ) : (
+                                        <button onClick={closeStore}
+                                            className="btn btn-sm btn-success float-end mt-2 rounded-pill me-3">
+                                            Open Store
+                                        </button>
+                                    )
+                                ) : (<> </>)}
                                 {/*<Link to={"/profile/customer/edit-profile"}>*/}
                                 {/*    <button className="rounded-pill float-end mt-2 button">*/}
                                 {/*        Edit profile*/}
