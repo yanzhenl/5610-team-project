@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router";
 import ProductLike from "./product-like";
+import ProductComments from "./product-comment";
 
 const ProductDetail = () => {
   const navigate = useNavigate()
@@ -59,7 +60,9 @@ const ProductDetail = () => {
             {/*</button>*/}
             <ProductLike id={product.id}/>
           </span>
+          <ProductComments id={product.id}/>
         </div>
+
       </div>
   )
 }

@@ -25,6 +25,7 @@ import React from "react";
 import FarmerList from "./explore-farmer";
 import AdminScreen from "./admin-screen";
 import likesReducer from "./services/likes/likes-reducer";
+import commentsReducer from "./services/comments/comments-reducer";
 
 const store = configureStore(
     {
@@ -34,7 +35,8 @@ const store = configureStore(
             past: PastReducer,
             detail:OrderDetailRudcer,
             cart: Cart,
-            likesData: likesReducer
+            likesData: likesReducer,
+            commentsData: commentsReducer
         }
     }
 );
