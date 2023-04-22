@@ -21,6 +21,7 @@ const CommentAdd = ({pid}) =>{
 
     return(
         <div className="row">
+            {currentUser && (
             <div className="col-10">
                 <textarea value={ct} placeholder="Add your comments?"
                           className="form-control border-0"
@@ -41,7 +42,7 @@ const CommentAdd = ({pid}) =>{
                     </div>
                 </div>
             </div>
-
+            )}
         </div>
     )
 }

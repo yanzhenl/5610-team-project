@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import React, {useState, useEffect} from "react";
 import {findUserByIdThunk, profileThunk} from "../services/users/users-thunks";
+import {Link} from "react-router-dom";
 import {findUserById} from "../services/users/users-service";
 
 
@@ -20,15 +21,16 @@ const CommentStat = ({comment}) =>{
     }, [userId]);
 
     return(
-        <div className="row">
-            <div className="col-3">
-                <img src={`/images/${user.profilePicture}`} style={{ width: '100px', height: '100px'}} alt=""/>
-            </div>
+        <div className="row border-light">
+            <div className="col-2">
+                <Link to={`/profile/${user._id}`}>
+                <img className="rounded-circle"
+                    src={`/images/${user.profilePicture}`} style={{ width: '70px', height: '70px'}} alt=""/>
+                </Link></div>
             <div className="col-9">
                 <div>{user.firstName}</div>
                 <div>{content}</div>
             </div>
-
         </div>
     )
 }
