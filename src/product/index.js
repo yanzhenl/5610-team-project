@@ -13,7 +13,8 @@ const ProductList = () => {
 
   let url = '';
   if(searchTerm) {
-    url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=${zipcode}&keyword=${query}&limit=60&offset=0`;
+    url = `https://weee-grocery-api-sayweee-c
+    om-browsing-searching-details.p.rapidapi.com/search?zipcode=${zipcode}&keyword=${query}&limit=60&offset=0`;
   } else {
     url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=${zipcode}&keyword=${finalQuery}&limit=60&offset=0`;
   }
