@@ -27,6 +27,8 @@ export const updateLikesThunk =
     createAsyncThunk(
         'likes/updateLike',
         async (like) =>{
-            await likesService.updateLike(like)
+            const updatedLike = await likesService.updateLike(like)
+            return updatedLike;
         }
     )
+
