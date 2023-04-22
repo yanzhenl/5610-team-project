@@ -180,17 +180,6 @@ function Register() {
 
                     <button onClick={register} className="wd-login-button" type="submit">Register</button>
 
-                    {/*<div>*/}
-                    {/*    {currentUser && (*/}
-                    {/*        <div>*/}
-                    {/*            <h2>{currentUser.username}</h2>*/}
-                    {/*            <h2>{currentUser.password}</h2>*/}
-                    {/*            <h2>{currentUser.firstName}</h2>*/}
-                    {/*            <h2>{currentUser.lastName}</h2>*/}
-                    {/*            <h2>{currentUser.businessName}</h2>*/}
-                    {/*        </div>*/}
-                    {/*    )}*/}
-                    {/*</div>*/}
 
                     <div className="mt-4">
                         Already have an account?

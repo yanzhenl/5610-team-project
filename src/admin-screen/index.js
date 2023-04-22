@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 import { findAllUsersThunk } from "../services/users/users-thunks";
+import { Link } from "react-router-dom";
 
 function AdminScreen() {
     const { currentUser, users } = useSelector((state) => state.users);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -36,21 +35,23 @@ function AdminScreen() {
                         <div className="row">
                             {groupedUsers[role] &&
                                 groupedUsers[role].map((user) => (
-                                    <div key={user.id} className="col-12 col-md-2 mb-4">
-                                        <img width={100} className="rounded-pill" src={`/images/${user.profilePicture}`} />
+                                    <div key={user._id} className="col-12 col-md-2 mb-4 mt-4 1card
+                                    rounded-3 shadow-sm d-flex flex-column align-items-center"
+                                        style={{ marginRight: "35px" }}>
 
-                                        <div className="">
-                                            <div className="mt-2">
-                                                {user.username}
+                                        <Link to={`/profile/${user._id}`}
+                                              style={{ textDecoration: 'none', color: 'black' }}>
+                                            <img width={100} className="rounded-pill"
+                                                src={`/images/${user.profilePicture}`}/>
+
+                                            <div className="text-center mt-2">
+                                                <div>{user.username}</div>
+                                                <div style={{ color: "gray" }}>{user.handle}</div>
+                                                <div>
+                                                    {user.firstName} {user.lastName} {user.businessName}
+                                                </div>
                                             </div>
-                                            <div style={{color: "gray"}}>
-                                                {user.handle}
-                                            </div>
-
-                                            {user.firstName} {user.lastName} {user.businessName}
-                                        </div>
-
-
+                                        </Link>
                                     </div>
                                 ))}
                         </div>
@@ -62,4 +63,3 @@ function AdminScreen() {
 }
 
 export default AdminScreen;
-
