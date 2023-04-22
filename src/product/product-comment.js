@@ -23,7 +23,7 @@ const ProductComments = (id) => {
         return (
             <>
                 <CommentAdd pid={id}/>
-                <ul className="list-group">
+                <ul className="list-group mt-4 border-top">
                     {
                         filtered.map(item => <CommentStat key={item._id} comment={item}/>)
                     }

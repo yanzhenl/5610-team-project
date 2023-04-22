@@ -22,26 +22,19 @@ const CommentAdd = ({pid}) =>{
     return(
         <div className="row">
             {currentUser && (
-            <div className="col-10">
-                <textarea value={ct} placeholder="Add your comments?"
-                          className="form-control border-0"
-                          onChange={(event) => setCt(event.target.value)}>
-
-                </textarea>
-                <div>
-                    <button className="rounded-pill btn btn-primary float-end mt-2 ps-3 pe-3 fw-bold"
-                            onClick={addComment}>
-                        Comment
-                    </button>
-                    <div className="text-primary fs-2">
-                        <i className="bi bi-card-image me-3"></i>
-                        <i className="bi bi-filetype-gif me-3"></i>
-                        <i className="bi bi-bar-chart me-3"></i>
-                        <i className="bi bi-emoji-smile me-3"></i>
-                        <i className="bi bi-geo-alt"></i>
+                <>
+                    <div className="col-9">
+                    <textarea value={ct} placeholder="Add your comments?"
+                              className="form-control border-primary"
+                              onChange={(event) => setCt(event.target.value)}>
+                    </textarea>
                     </div>
-                </div>
-            </div>
+                    <div className="col-2">
+                        <button className="btn btn-primary mt-2"
+                                onClick={addComment}>Comment
+                        </button>
+                    </div>
+                </>
             )}
         </div>
     )
