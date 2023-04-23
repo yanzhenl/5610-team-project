@@ -9,7 +9,7 @@ const ProductList = () => {
 
   const [products,setProducts] = useState([]);
 
-  const  url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=98105&keyword=${category_name}&limit=20&ffset=0`;
+  let  url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=98105&keyword=${category_name}&limit=20&ffset=0`;
   if (category_name == "nothing") {
     url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/search?zipcode=98105&keyword=${category_name}&limit=0&ffset=0`;
   }
