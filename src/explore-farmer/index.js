@@ -36,7 +36,7 @@ function FarmerList() {
                 <div className="row">
                     {farmers.map((farmer) => (
                         farmer.opened &&(
-                            <Link to={`/farmers/${farmer.businessName}/${farmer.zipcode}`}
+                            <Link to={`/farmers/${farmer.businessName}/${farmer.category_name}`}
                                   style={{ textDecoration: 'none', color: 'black' }}>
                                 <li className="list-group-item mt-3 mb-2 d-flex align-items-center farmer-container">
                                     <img width={50} className="rounded-pill float-start inner-content ms-3"
