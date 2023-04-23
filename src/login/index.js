@@ -26,7 +26,7 @@ function Login() {
             } else {
                 // Check the role of the logged-in user and navigate accordingly
                 if (result.payload.role === "FARMER") {
-                    navigate(`/farmers/${result.payload.businessName}/${result.payload.zipcode}`);
+                    navigate(`/farmers/${result.payload.businessName}/${result.payload.category_name}`);
                 } else if (result.payload.role === "ADMIN") {
                     navigate("/users");
                 } else {

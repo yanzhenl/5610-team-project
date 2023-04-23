@@ -49,7 +49,7 @@ const NavigationSidebar = () => {
 
 
                 {currentUser && currentUser.role === "FARMER" && (
-                    <Link to={`/farmers/${currentUser.businessName}/${currentUser.zipcode}`}
+                    <Link to={`/farmers/${currentUser.businessName}/${currentUser.category_name}`}
                           className={`list-group-item list-group-item-action padding-right-8
                     ${active === 'farmers'?'wd-active':''}`} onClick={() => handleClick("farmers")}>
                             <i className="bi bi-house-fill float-start"></i>
