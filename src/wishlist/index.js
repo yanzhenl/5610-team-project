@@ -26,9 +26,9 @@ function WishList() {
                             /*<li key={wish._id} className="list-group-item">
                                 <h3>{wish.productId}</h3>
                             </li>*/
-                            <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4">
-                                <WishlistDetail pid={wish.productId}/>
-                            </li>
+                              <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4">
+                                  <WishlistDetail pid={wish.productId}/>
+                              </li>
                         )
                     })
                 }

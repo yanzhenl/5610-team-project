@@ -72,6 +72,7 @@ function App() {
                                 <Route path="/cart-list/checkout" element={<Checkout/>}/>
                                 <Route path="/product-search" element={<ProductSearch/>}/>
                                 <Route path="/wishlist" element={<Wishlist/>}/>
+                                <Route path="/wishlist/product-detail/:id" element={<ProductDetail/>}/>
                             </Routes>
                         </div>
                     </div>
