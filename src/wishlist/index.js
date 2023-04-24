@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
 import {findWishListByUserId} from "../services/wishList-service";
-import ProductItem from "../product/product-item";
 import WishlistDetail from "./WishlistDetail";
+import "../profile/index.css";
 
 function WishList() {
     const dispatch = useDispatch();
@@ -19,7 +18,7 @@ function WishList() {
     return (
         <div>
             <h1>Wish List</h1>
-            <ul className="list-group">
+            <ul className="list-group flex-user">
                 {
                     wishList.map(wish => {
                         return (

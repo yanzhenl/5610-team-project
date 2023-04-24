@@ -64,10 +64,10 @@ const ProductDetail = () => {
                             Last week sold: {product.last_week_sold_count_ui}
                         </p>
                         {currentUser && (
-                        <button type="button" className="float-end btn btn-outline-primary btn-sm"
+                        <button type="button" className="float-end btn btn-outline-danger btn-sm"
                                 onClick={addWishList}
                                 style={{borderRadius: '25px', padding: '0.15rem 0.75rem'}}>
-                            <i className="bi bi-cart-plus"></i>
+                            <i className="bi bi-heart"></i>
                         </button>
                         )}
                         <h3 className={'text-danger'}>${product.price}/lb</h3>

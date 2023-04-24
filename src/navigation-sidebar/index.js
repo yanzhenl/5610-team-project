@@ -109,16 +109,16 @@ const NavigationSidebar = () => {
                             <i className="bi bi-cart4 float-start"></i>
                             <span className="d-none d-xl-block float-start ms-2">My Wishlist</span>
                         </Link>
-                        <Link to="/cart-list" className={`list-group-item list-group-item-action
-                        ${active === 'cart'?'wd-active':''}`} onClick={() => handleClick("cart")}>
-                            <i className="bi bi-cart4 float-start"></i>
-                            <span className="d-none d-xl-block float-start ms-2">Cart</span>
-                        </Link>
-                        <Link to="/order-history" className={`list-group-item list-group-item-action
-                        ${active === 'orders'?'wd-active':''}`} onClick={() => handleClick("orders")}>
-                            <i className="bi bi-bag-check float-start"></i>
-                            <span className="d-none d-xl-block float-start ms-2">Orders</span>
-                        </Link>
+                        {/*<Link to="/cart-list" className={`list-group-item list-group-item-action*/}
+                        {/*${active === 'cart'?'wd-active':''}`} onClick={() => handleClick("cart")}>*/}
+                        {/*    <i className="bi bi-cart4 float-start"></i>*/}
+                        {/*    <span className="d-none d-xl-block float-start ms-2">Cart</span>*/}
+                        {/*</Link>*/}
+                        {/*<Link to="/order-history" className={`list-group-item list-group-item-action*/}
+                        {/*${active === 'orders'?'wd-active':''}`} onClick={() => handleClick("orders")}>*/}
+                        {/*    <i className="bi bi-bag-check float-start"></i>*/}
+                        {/*    <span className="d-none d-xl-block float-start ms-2">Orders</span>*/}
+                        {/*</Link>*/}
                     </>
                 )}
             </div>
