@@ -19,6 +19,6 @@ export const createLike = async (like) => {
 
 export const updateLike = async (like) => {
     const response = await axios.put(`${LIKES_API_URL}/${like._id}`, like);
-    return response.data; // Return the updated like object
+    return response.data;
 };
 

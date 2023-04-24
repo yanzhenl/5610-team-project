@@ -3,7 +3,7 @@ import {createCommentThunk, findAllCommentsThunk} from "./comments-thunk";
 
 const initialState = {
     comments: [],
-    loading: false  //loading flag to display spinner
+    loading: false
 }
 
 const commentsSlice = createSlice({
@@ -12,18 +12,18 @@ const commentsSlice = createSlice({
     extraReducers: {
         [findAllCommentsThunk.pending]:
             (state) => {
-                state.loading = true   //true so UI can display spinner
+                state.loading = true
                 state.comments = []
             },
         [findAllCommentsThunk.fulfilled]:
-            (state, {payload}) => {   //exrta payload from action object
-                state.loading = false  //turn off loading
+            (state, {payload}) => {
+                state.loading = false
                 state.comments = payload
             },
         [findAllCommentsThunk.rejected]:
             (state, action) => {
                 state.loading = false
-                state.error = action.error    //report error
+                state.error = action.error
             },
         [createCommentThunk.fulfilled]:
             (state, {payload}) => {
