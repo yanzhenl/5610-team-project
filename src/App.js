@@ -26,6 +26,7 @@ import FarmerList from "./explore-farmer";
 import AdminScreen from "./admin-screen";
 import likesReducer from "./services/likes/likes-reducer";
 import commentsReducer from "./services/comments/comments-reducer";
+import Wishlist from "./wishlist";
 
 const store = configureStore(
     {
@@ -70,6 +71,7 @@ function App() {
                                 <Route path="/cart-list" element={<CartList/>}/>
                                 <Route path="/cart-list/checkout" element={<Checkout/>}/>
                                 <Route path="/product-search" element={<ProductSearch/>}/>
+                                <Route path="/wishlist" element={<Wishlist/>}/>
                             </Routes>
                         </div>
                     </div>
