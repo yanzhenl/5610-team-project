@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {findWishListByUserId} from "../services/wishList-service";
+import ProductItem from "../product/product-item";
+import WishlistDetail from "./WishlistDetail";
 
 function WishList() {
     const dispatch = useDispatch();
@@ -21,8 +23,11 @@ function WishList() {
                 {
                     wishList.map(wish => {
                         return (
-                            <li key={wish._id} className="list-group-item">
+                            /*<li key={wish._id} className="list-group-item">
                                 <h3>{wish.productId}</h3>
+                            </li>*/
+                            <li className="col-lg-3 col-md-6 col-sm-12 list-group-item me-4">
+                                <WishlistDetail pid={wish.productId}/>
                             </li>
                         )
                     })
