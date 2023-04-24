@@ -43,7 +43,7 @@ const WishlistDetail = ({pid}) => {
             <span className="mt-1 ms-2 fw-bold">
             ${product.price}/lb
             </span>
-            <span >{pid}</span>
+            <span style={{color: "transparent"}}>{pid}</span>
             {/*<span>*/}
             {/*    <button type="button" className="float-end btn btn-outline-primary btn-sm"*/}
             {/*            style={{ borderRadius: '25px', padding: '0.15rem 0.75rem' }}>*/}
