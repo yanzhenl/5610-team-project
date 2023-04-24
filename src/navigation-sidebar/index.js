@@ -104,6 +104,11 @@ const NavigationSidebar = () => {
 
                 {currentUser && currentUser.role === "CONSUMER" && (
                     <>
+                        <Link to="/wishlist" className={`list-group-item list-group-item-action
+                        ${active === 'cart'?'wd-active':''}`} onClick={() => handleClick("wishlist")}>
+                            <i className="bi bi-cart4 float-start"></i>
+                            <span className="d-none d-xl-block float-start ms-2">My Wishlist</span>
+                        </Link>
                         <Link to="/cart-list" className={`list-group-item list-group-item-action
                         ${active === 'cart'?'wd-active':''}`} onClick={() => handleClick("cart")}>
                             <i className="bi bi-cart4 float-start"></i>
