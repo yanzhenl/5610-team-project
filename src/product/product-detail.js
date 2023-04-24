@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router";
 import ProductLike from "./product-like";
 import ProductComments from "./product-comment";
-import {userAddWishList} from "../services/wishList-service";
+import {userAddWishList, findWishListByUserIdAndPID} from "../services/wishList-service";
 import {current} from "@reduxjs/toolkit";
 
 const ProductDetail = () => {
@@ -10,6 +10,7 @@ const ProductDetail = () => {
     const {businessName, zipcode, searchTerm, id} = useParams();
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const [product, setProduct] = useState({});
+    const [addedWishList, setAddedWishList] = useState(null);
     const url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/details?product_id=${id}&zipcode=77494`;
     const options = {
         method: 'GET',
@@ -19,7 +20,7 @@ const ProductDetail = () => {
         }
     };
 
-    const fetchme = () => {
+    const fetchme = async () => {
         fetch(url, options)
             .then((response) => response.json())
             .then((res) => {
@@ -29,6 +30,7 @@ const ProductDetail = () => {
             .catch((err) => {
                 console.log(err.message);
             });
+        // await fetchadded();
     }
 
     useEffect(() => {
@@ -41,6 +43,11 @@ const ProductDetail = () => {
 
     const addWishList = async () => {
         await userAddWishList(currentUser._id, product.id);
+    }
+
+    const fetchadded = async () => {
+        const data = await findWishListByUserIdAndPID(currentUser._id, product.id);
+        setAddedWishList(data);
     }
 
     return (
@@ -64,11 +71,18 @@ const ProductDetail = () => {
                             Last week sold: {product.last_week_sold_count_ui}
                         </p>
                         {currentUser && (
+                            addedWishList ? (
+                                <button type="button" className="float-end btn btn-danger btn-sm"
+                                        style={{borderRadius: '25px', padding: '0.15rem 0.75rem'}}>
+                                    <i className="bi bi-heart-fill"></i>
+                                </button>
+                            ) : (
                         <button type="button" className="float-end btn btn-outline-danger btn-sm"
                                 onClick={addWishList}
                                 style={{borderRadius: '25px', padding: '0.15rem 0.75rem'}}>
                             <i className="bi bi-heart"></i>
                         </button>
+                            )
                         )}
                         <h3 className={'text-danger'}>${product.price}/lb</h3>
                         {/*{product.descriptions}<br/>*/}

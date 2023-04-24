@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
-const WishlistDetail = (pid) => {
+const WishlistDetail = ({pid}) => {
     const [product, setProduct] = useState({});
-    const url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/details?product_id=85180&zipcode=77494`;
+    const url = `https://weee-grocery-api-sayweee-com-browsing-searching-details.p.rapidapi.com/details?product_id=${pid}&zipcode=77494`;
     const options = {
         method: 'GET',
         headers: {
@@ -43,6 +43,7 @@ const WishlistDetail = (pid) => {
             <span className="mt-1 ms-2 fw-bold">
             ${product.price}/lb
             </span>
+            <span >{pid}</span>
             {/*<span>*/}
             {/*    <button type="button" className="float-end btn btn-outline-primary btn-sm"*/}
             {/*            style={{ borderRadius: '25px', padding: '0.15rem 0.75rem' }}>*/}

@@ -12,3 +12,8 @@ export const findWishListByUserId = async (userId) => {
     const response = await axios.get(`${USERS_API}/${userId}/wishlist`);
     return response.data;
 };
+
+export const findWishListByUserIdAndPID = async (userId, productId) => {
+    const response = await axios.get(`${USERS_API}/${userId}/wishlist/${productId}`);
+    return response.data;
+}
