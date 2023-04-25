@@ -92,7 +92,9 @@ const ProductDetail = () => {
                         {/*    className="btn rounded-pill border float-end">*/}
                         {/*  Edit Detail*/}
                         {/*</button>*/}
-                        <ProductLike id={product.id}/>
+                        {currentUser && (
+                            <ProductLike id={product.id}/>
+                        )}
                     </div>
                 </div>
             </div>
