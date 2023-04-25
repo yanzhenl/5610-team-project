@@ -93,7 +93,9 @@ const ProductDetail = () => {
                         {/*  Edit Detail*/}
                         {/*</button>*/}
                         {currentUser && (
+                            currentUser.role === "CONSUMER" && (
                             <ProductLike id={product.id}/>
+                            )
                         )}
                     </div>
                 </div>

@@ -22,6 +22,7 @@ const CommentAdd = ({pid}) =>{
     return(
         <div className="row">
             {currentUser && (
+                currentUser.role === "CONSUMER" && (
                 <>
                     <div className="col-9">
                     <textarea value={ct} placeholder="Add your comments?"
@@ -35,6 +36,7 @@ const CommentAdd = ({pid}) =>{
                         </button>
                     </div>
                 </>
+                )
             )}
         </div>
     )
