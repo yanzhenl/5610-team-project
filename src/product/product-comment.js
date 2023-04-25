@@ -25,7 +25,11 @@ const ProductComments = (id) => {
                 <CommentAdd pid={id}/>
                 <ul className="list-group mt-4 border-top">
                     {
-                        filtered.map(item => <CommentStat key={item._id} comment={item}/>)
+                        filtered.map((item) => {
+                            if (item != null && item.user_id != null && item.content != null && item.content.length != 0) {
+                                return <CommentStat comment={item}/>;
+                            }
+                        })
                     }
                 </ul>
             </>
