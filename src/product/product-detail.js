@@ -71,6 +71,7 @@ const ProductDetail = () => {
                             Last week sold: {product.last_week_sold_count_ui}
                         </p>
                         {currentUser && (
+                            currentUser.role === "CONSUMER" && (
                             addedWishList ? (
                                 <button type="button" className="float-end btn btn-danger btn-sm"
                                         style={{borderRadius: '25px', padding: '0.15rem 0.75rem'}}>
@@ -83,7 +84,7 @@ const ProductDetail = () => {
                             <i className="bi bi-heart"></i>
                         </button>
                             )
-                        )}
+                        ))}
                         <h3 className={'text-danger'}>${product.price}/lb</h3>
                         {/*{product.descriptions}<br/>*/}
                         {/*{product.availability === true && "In Stock"}*/}
