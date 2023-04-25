@@ -7,7 +7,7 @@ import {
     findFollowsByFollowerId,
     findFollowsByFollowedId,
 } from "../../services/follows-service";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../index.css";
 
@@ -18,6 +18,7 @@ function Profile() {
     const [following, setFollowing] = useState([]);
     const [follows, setFollows] = useState([]);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const fetchProfile = async () => {
         if (userId) {
             const user = await findUserById(userId);
@@ -43,6 +44,10 @@ function Profile() {
         setFollows(follows);
     };
 
+    const handleClick = () => {
+        navigate(-1);
+    }
+
     useEffect(() => {
         loadScreen();
     }, [userId]);
@@ -53,7 +58,7 @@ function Profile() {
                 <div>
                     <div className="row">
                         <div className="col-1">
-                            <i className="fa fa-arrow-left center"></i>
+                            <i onClick={handleClick} className="fa fa-arrow-left center"></i>
                         </div>
                         <div className="col-11">
                             <div className="fw-bold">

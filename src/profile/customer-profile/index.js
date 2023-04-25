@@ -10,7 +10,7 @@ import {
     findFollowsByFollowerIdAndFollowedId,
     userUnfollowsUser,
 } from "../../services/follows-service";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../index.css";
 
@@ -23,6 +23,7 @@ function CustomerProfile() {
     const [follows, setFollows] = useState([]);
     const [follow, setFollow] = useState(null);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const fetchProfile = async () => {
         if (userId) {
             const user = await findUserById(userId);
@@ -88,6 +89,10 @@ function CustomerProfile() {
         await fetchProfile();
     }
 
+    const handleClick = () => {
+        navigate(-1);
+    }
+
     useEffect(() => {
         loadScreen();
     }, [userId, profile._id, follow]);
@@ -98,7 +103,7 @@ function CustomerProfile() {
                 <div>
                     <div className="row">
                         <div className="col-1">
-                            <i className="fa fa-arrow-left center"></i>
+                            <i onClick={handleClick} className="fa fa-arrow-left center"></i>
                         </div>
                         <div className="col-11">
                             <div className="fw-bold">
