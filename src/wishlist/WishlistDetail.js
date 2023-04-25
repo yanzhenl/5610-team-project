@@ -31,7 +31,7 @@ const WishlistDetail = ({pid}) => {
     return (
         <div>
             <div className="mt-2 ps-2">
-              <Link to={`product-detail/${product.id}`}>
+              <Link to={`product-detail/${pid}`}>
                 <img height={200} className="w-100 rounded-4"
                         src={`${product.img}`} alt={product.id}/>
               </Link>
@@ -44,13 +44,13 @@ const WishlistDetail = ({pid}) => {
             ${product.price}/lb
             </span>
             <span style={{color: "transparent"}}>{pid}</span>
+            {/*<Link to={`product-detail/${pid}`}>*/}
             {/*<span>*/}
             {/*    <button type="button" className="float-end btn btn-outline-primary btn-sm"*/}
             {/*            style={{ borderRadius: '25px', padding: '0.15rem 0.75rem' }}>*/}
-            {/*      <i className="bi bi-cart-plus"></i>*/}
+            {/*      Detail*/}
             {/*    </button>*/}
-            {/*</span>*/}
-
+            {/*</span></Link>*/}
         </div>
     )
 }
